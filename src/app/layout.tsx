@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Toaster } from "@/components/ui/toaster";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -11,6 +12,12 @@ const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
+});
+
+const audiowide = localFont({
+  src: "./fonts/audiowide.woff2",
+  variable: "--font-audiowide",
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -26,9 +33,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${audiowide.variable} antialiased`}
       >
-        {children}
+        <main>{children}</main>
+        <Toaster />
       </body>
     </html>
   );
