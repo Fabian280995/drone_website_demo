@@ -1,9 +1,10 @@
 "use client";
 import { Pause, Play, Volume2, VolumeX } from "lucide-react";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactPlayer from "react-player";
 
 function Hero() {
+  const [mounted, setMounted] = useState(false);
   const [videoSrc, setVideoSrc] = useState(
     "https://www.youtube.com/watch?v=_iiEVUTcm8k"
   );
@@ -39,10 +40,16 @@ function Hero() {
     }
   };
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
   return (
     <section id="home">
-      <div className="container mx-auto px-4 bg-transparent py-64 flex flex-row flex-wrap items-center">
-        <div className="flex flex-col w-1/2 pr-2">
+      <div className="container mx-auto px-4 bg-transparent h-[calc(100vh-80px)] flex flex-row flex-wrap items-center justify-center">
+        <div className="flex flex-col pr-2 flex-1">
           <h1 className="text-4xl mb-2 font-audiowide drop-shadow-md tracking-tight">
             Dynamische Drohnenaufnahmen
           </h1>
@@ -53,7 +60,7 @@ function Hero() {
             Reprehenderit necessitatibus quibusdam culpa aut non!
           </p>
         </div>
-        <div className="relative w-1/2 aspect-video shadow-md  shadow-black/20">
+        <div className="relative flex-1 min-w-[24rem] aspect-video shadow-md  shadow-black/20">
           <ReactPlayer
             ref={playerRef}
             url={videoSrc}
@@ -95,7 +102,7 @@ function Hero() {
                 </button>
                 <div className="w-32 h-1 bg-gray-400 rounded-full overflow-hidden opacity-80">
                   <div
-                    className="h-full bg-white"
+                    className="full bg-white"
                     style={{ width: `${played * 100}%` }}
                   />
                 </div>

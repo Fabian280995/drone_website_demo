@@ -9,7 +9,7 @@ const NavLinks = [
 
 function Header() {
   return (
-    <header className="sticky top-0 bg-background/80 backdrop-blur-sm z-50">
+    <header className="fixed top-0 bg-background/80 backdrop-blur-sm z-50 w-full h-20 flex items-center">
       <div className="container mx-auto px-4 py-2 flex justify-between items-center">
         <div className="flex items-center space-x-2">
           <Logo />

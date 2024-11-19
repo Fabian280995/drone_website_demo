@@ -60,7 +60,7 @@ const ContactSection: React.FC = () => {
   }
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="h-[calc(100vh-80px)] py-32">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8 text-center">
           Kontaktieren Sie mich
