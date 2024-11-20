@@ -2,6 +2,7 @@
 import { Pause, Play, Volume2, VolumeX } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import ReactPlayer from "react-player";
+import { Button } from "./ui/button";
 
 function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -40,6 +41,10 @@ function Hero() {
     }
   };
 
+  const handleContactBtnClick = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -48,9 +53,9 @@ function Hero() {
 
   return (
     <section id="home">
-      <div className="container mx-auto px-4 bg-transparent h-[calc(100vh-80px)] flex flex-row flex-wrap items-center justify-center">
+      <div className="container mx-auto px-4 bg-transparent h-[calc(100vh-18rem)] flex flex-row flex-wrap items-center justify-center">
         <div className="flex flex-col pr-2 flex-1">
-          <h1 className="text-4xl mb-2 font-audiowide drop-shadow-md tracking-tight">
+          <h1 className="text-4xl mb-2 font-audiowide drop-shadow-md tracking-tight font-bold">
             Dynamische Drohnenaufnahmen
           </h1>
           <p className="text-primary/80 text-xl leading-8 text-balance">
@@ -59,6 +64,14 @@ function Hero() {
             vel laborum voluptatem reprehenderit assumenda saepe facere dolorem?
             Reprehenderit necessitatibus quibusdam culpa aut non!
           </p>
+          <Button
+            className="mt-8 self-start"
+            variant={"default"}
+            size={"lg"}
+            onClick={handleContactBtnClick}
+          >
+            Jetzt anfragen
+          </Button>
         </div>
         <div className="relative flex-1 min-w-[24rem] aspect-video shadow-md  shadow-black/20">
           <ReactPlayer

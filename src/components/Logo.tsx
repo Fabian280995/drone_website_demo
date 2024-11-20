@@ -3,14 +3,14 @@ import React from "react";
 const Logo: React.FC = () => {
   return (
     <h1
-      className="uppercase font-audiowide text-2xl font-black leading-5"
+      className="uppercase font-audiowide text-2xl font-black leading-5 drop-shadow-md"
       aria-label="Cinematic Eagle FPV - Logo"
     >
       <div className="tracking-[0.095em]">
         <span className="text-black" role="text">
           CINE
         </span>
-        <span className=" text-gray-300" role="text">
+        <span className=" text-slate-400" role="text">
           MATICS
         </span>
       </div>
@@ -18,7 +18,7 @@ const Logo: React.FC = () => {
         <span className=" text-black" role="text">
           EAGLE
         </span>
-        <span className=" text-gray-300" role="text">
+        <span className=" text-slate-400" role="text">
           DRONE
         </span>
       </div>
