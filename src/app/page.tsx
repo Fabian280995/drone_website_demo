@@ -1,16 +1,18 @@
 import Contact from "@/components/Contact"; // Importiere die neue Komponente
 import Gallery from "@/components/Gallery";
 import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import ZoomParallax from "@/components/ZoomParallax";
+import Hero from "@/components/NewHero";
+import Services from "@/components/Services";
 
 export default function Portfolio() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
-      <div id="home" className="h-20 bg-background" />
-      <main>
-        <Hero />
+      {/* <div id="home" className="h-20 bg-background" /> */}
+      <main id="home">
+        <Hero>
+          <Services />
+        </Hero>
         <Gallery />
         <Contact />
       </main>

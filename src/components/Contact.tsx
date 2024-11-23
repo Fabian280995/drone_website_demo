@@ -16,6 +16,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import PaddingBox from "./layout/PaddingBox";
 
 const MAX_MESSAGE_LENGTH = 500;
 
@@ -60,11 +61,9 @@ const ContactSection: React.FC = () => {
   }
 
   return (
-    <section id="contact" className="h-[calc(100vh-80px)] py-32">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center">
-          Kontaktieren Sie mich
-        </h2>
+    <section id="contact" className="h-[calc(100vh-80px)]">
+      <PaddingBox vertical="xl" horizontal="xl">
+        <h2 className="text-center">Kontaktieren Sie mich</h2>
         <div className="max-w-md mx-auto">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -152,7 +151,7 @@ const ContactSection: React.FC = () => {
             <MapPin className="mr-2" /> Musterstadt, Deutschland
           </p>
         </div>
-      </div>
+      </PaddingBox>
     </section>
   );
 };

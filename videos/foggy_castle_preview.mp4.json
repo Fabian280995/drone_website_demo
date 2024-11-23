@@ -1,0 +1,23 @@
+{
+  "status": "ready",
+  "originalFilePath": "videos/foggy_castle_preview.mp4",
+  "provider": "mux",
+  "providerMetadata": {
+    "mux": {
+      "uploadId": "1St00aUcpCnYebSiaIkVRPrqpdNFiVv02WJxCj00u013Mb4",
+      "assetId": "vQhdxOdbPl01U01WqT8pGMyM9AraDFDDc6oBG2s02d3NfI",
+      "playbackId": "yFuSdCqsicFpRy5UYaKvyVaTDuw7PwN3nLhrdCJyU02E"
+    }
+  },
+  "createdAt": 1732136011275,
+  "updatedAt": 1732299602698,
+  "size": 234897408,
+  "sources": [
+    {
+      "src": "https://stream.mux.com/yFuSdCqsicFpRy5UYaKvyVaTDuw7PwN3nLhrdCJyU02E.m3u8",
+      "type": "application/x-mpegURL"
+    }
+  ],
+  "poster": "https://image.mux.com/yFuSdCqsicFpRy5UYaKvyVaTDuw7PwN3nLhrdCJyU02E/thumbnail.webp",
+  "blurDataURL": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAQAgCdASoQAAkAAQAcJYwCdAEfbJpnvtwAAP7+9TnqkvYjw7cb7OvLZrzW8ndukOzr3kHz72brNd0Oj+//NlzdnXsQBztP55Wv3nPLOj3EAT3lt39hEd8yB2Eoq38vU0T9KmwEjfcrr6q6ULd7eblwHv1q1hdKgAA="
+}

@@ -2,15 +2,14 @@
 import React from "react";
 import { Button } from "./ui/button";
 import ZoomParallax from "./ZoomParallax";
+import PaddingBox from "./layout/PaddingBox";
 
 function Gallery() {
   return (
-    <section id="gallery" className="bg-slate-100 pt-20">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-audiowide font-bold text-primary">
-          Leistungen
-        </h2>
-      </div>
+    <section id="gallery" className="bg-gray-50">
+      <PaddingBox top="xl" horizontal="xl" bottom="sm">
+        <h2>Gallerie</h2>
+      </PaddingBox>
       <ZoomParallax />
     </section>
   );
