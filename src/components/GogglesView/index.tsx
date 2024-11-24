@@ -8,7 +8,7 @@ import Speed from "./Speed";
 
 function GogglesView() {
   return (
-    <PaddingBox className="opacity-70 max-md:scale-90 ">
+    <PaddingBox className="opacity-70 max-md:scale-90">
       <div className="w-full h-full flex items-end justify-between flex-wrap gap-6">
         <div className="flex flex-col">
           {/* <div className="flex gap-12">

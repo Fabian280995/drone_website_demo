@@ -7,6 +7,13 @@ import PaddingBox from "./layout/PaddingBox";
 import previewVideo from "/videos/Castle Appears in autnumnal and foggy forest.mp4";
 import { Button } from "./ui/button";
 import BackgroundVideo from "next-video/background-video";
+import {
+  ArrowBigRight,
+  ArrowBigRightDash,
+  ArrowRight,
+  ArrowRightCircle,
+  ChevronDown,
+} from "lucide-react";
 
 function Hero({ children }: PropsWithChildren<{}>) {
   const container = useRef(null);
@@ -47,28 +54,36 @@ function Hero({ children }: PropsWithChildren<{}>) {
         >
           <PaddingBox
             horizontal="xl"
-            className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-col justify-end items-start gap-4 max-w-[100vw] md:max-w-[80vw] lg:max-w-[70vw] xl:max-w-[60vw]"
+            className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-col justify-end items-start max-w-[100vw] md:max-w-[80vw] lg:max-w-[70vw] xl:max-w-[60vw]"
           >
             <span className="text-white drop-shadow-lg text-[5rem] text-3xl md:text-5xl lg:text-6xl font-bebas-neue">
-              Mit <span className="text-primary-foreground">Cine Eagle</span>{" "}
-              neue Höhen erreichen!
+              Mit Cine Eagle neue Höhen erreichen!
             </span>
             <Button
-              variant={"default"}
+              variant={"ghost"}
               size={"lg"}
-              className="bg-primary-foreground text-black font-semibold text-lg hover:scale-105 target:scale-95"
+              className="text-primary-foreground p-0 font-bold text-xl hover:scale-105 target:scale-95 hover:bg-transparent hover:text-primary transition-all"
               onClick={handleButtonClick}
             >
+              <ArrowRightCircle />
               Jetzt kontaktieren
             </Button>
           </PaddingBox>
           <PaddingBox
             vertical="xs"
             horizontal="xl"
-            className="absolute bottom-0 left-0 right-0 flex items-start justify-between h-[14vh]"
+            className="absolute bottom-0 left-0 right-0 grid grid-cols-3 h-[14vh] "
           >
             <div className=""></div>
-            <GogglesView />
+            <div className="h-full w-full flex items-center justify-center">
+              <ChevronDown
+                size={48}
+                className="text-secondary-foreground opacity-100 animate-pulse"
+              />
+            </div>
+            <div className="flex items-start justify-center ">
+              <GogglesView />
+            </div>
           </PaddingBox>
         </motion.div>
       </div>
