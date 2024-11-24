@@ -8,7 +8,7 @@ function Gallery() {
   return (
     <section id="gallery" className="bg-gray-50">
       <PaddingBox top="xl" horizontal="xl" bottom="sm">
-        <h2>Gallerie</h2>
+        <h2 className="text-center">Gallerie</h2>
       </PaddingBox>
       <ZoomParallax />
     </section>

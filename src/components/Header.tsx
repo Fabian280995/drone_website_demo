@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { cn } from "@/lib/utils";
+import { useAnimation } from "framer-motion";
+import { useEffect, useState } from "react";
 import Logo from "./Logo";
 import PaddingBox from "./layout/PaddingBox";
-import { initialize } from "next/dist/server/lib/render-server";
 
 const NavLinks = [
   { title: "Home", href: "#home" },
@@ -14,7 +14,7 @@ const NavLinks = [
 ];
 
 function Header() {
-  const [isScrolledPastHero, setIsScrolledPastHero] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const controls = useAnimation();
 
   useEffect(() => {
@@ -23,69 +23,54 @@ function Header() {
       const windowHeight = window.innerHeight;
 
       // Check if scroll position is beyond 100vh
-      setIsScrolledPastHero(scrollTop > windowHeight + 40);
-
-      // Update text color for navigation
-      if (scrollTop < windowHeight) {
-        controls.start({ color: "white" });
-      } else {
-        controls.start({ color: "black" });
-      }
+      setIsScrolled(scrollTop > windowHeight - windowHeight * 0.5);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [controls]);
 
-  const charMotion = {
-    initial: { y: 0 },
-    hover: { y: -1, color: "rgb(125 211 252)" },
-  };
-
   return (
-    <motion.header
-      className={`absolute top-0 z-50 w-full h-20 flex items-center transition-colors duration-500 ${
-        isScrolledPastHero
-          ? "bg-white/75 backdrop-blur-md" // Weißer Hintergrund mit Blur
-          : "bg-transparent" // Transparenter Hintergrund in der Hero-Section
-      }`}
+    <header
+      className={cn(
+        `fixed top-0 z-50 w-full flex items-center transition-colors duration-200`,
+        isScrolled ? "bg-white  shadow-md" : "bg-transparent"
+      )}
     >
       <PaddingBox
         vertical="sm"
         horizontal="xl"
         className="w-full flex justify-between items-center"
       >
-        <div className="flex items-center space-x-2">
-          <Logo isScrolledPastHero={isScrolledPastHero} />
-        </div>
+        <Logo dark={isScrolled} />
         <nav>
           <ul className="flex space-x-4">
             {NavLinks.map((link) => (
-              <motion.li key={link.title}>
-                <motion.a
+              <li key={link.title}>
+                <a
                   href={link.href}
-                  className="font-geist text-2xl transition-colors duration-300"
-                  initial={{ color: "white" }} // Startfarbe Weiß
-                  animate={controls} // Dynamische Farbänderung
-                  whileHover={"hover"}
+                  className={cn(
+                    "font-geist text-2xl transition-colors duration-200 group",
+                    isScrolled ? "text-gray-900" : "text-white"
+                  )}
                 >
                   {link.title.split("").map((char, index) => (
-                    <motion.span
+                    <span
                       key={index}
-                      className="inline-block"
-                      variants={charMotion}
-                      transition={{ delay: index * 0.035 }}
+                      className={`inline-block group-hover:text-primary-foreground delay-[${
+                        index * 500
+                      }ms]`}
                     >
                       {char}
-                    </motion.span>
+                    </span>
                   ))}
-                </motion.a>
-              </motion.li>
+                </a>
+              </li>
             ))}
           </ul>
         </nav>
       </PaddingBox>
-    </motion.header>
+    </header>
   );
 }
 

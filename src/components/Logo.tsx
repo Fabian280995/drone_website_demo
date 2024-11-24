@@ -2,13 +2,13 @@ import React from "react";
 import { motion } from "framer-motion";
 
 interface LogoProps {
-  isScrolledPastHero: boolean;
+  dark: boolean;
 }
 
-const Logo: React.FC<LogoProps> = ({ isScrolledPastHero }) => {
+const Logo: React.FC<LogoProps> = ({ dark }) => {
   return (
     <motion.h1
-      className="uppercase font-audiowide text-2xl font-black leading-5 drop-shadow-md"
+      className="uppercase font-audiowide text-2xl font-gray-700 leading-5 drop-shadow-md"
       aria-label="Cinematic Eagle FPV - Logo"
     >
       <div className="tracking-[0.095em]">
@@ -21,8 +21,7 @@ const Logo: React.FC<LogoProps> = ({ isScrolledPastHero }) => {
         </motion.span>
         <motion.span
           role="text"
-          initial={{ color: "white" }}
-          animate={{ color: isScrolledPastHero ? "black" : "white" }}
+          className={dark ? "text-gray-700" : "text-white"}
           transition={{ duration: 0.3 }}
         >
           MATICS
@@ -38,8 +37,7 @@ const Logo: React.FC<LogoProps> = ({ isScrolledPastHero }) => {
         </motion.span>
         <motion.span
           role="text"
-          initial={{ color: "white" }}
-          animate={{ color: isScrolledPastHero ? "black" : "white" }}
+          className={dark ? "text-gray-700" : "text-white"}
           transition={{ duration: 0.3 }}
         >
           DRONE

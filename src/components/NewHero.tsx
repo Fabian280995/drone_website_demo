@@ -1,11 +1,12 @@
 "use client";
 import { easeIn, motion, useScroll, useTransform } from "framer-motion";
 import Video from "next-video";
-import { PropsWithChildren, useRef } from "react";
+import { PropsWithChildren, useEffect, useRef, useState } from "react";
 import GogglesView from "./GogglesView";
 import PaddingBox from "./layout/PaddingBox";
-import previewVideo from "/videos/foggy_castle_preview.mp4";
+import previewVideo from "/videos/Castle Appears in autnumnal and foggy forest.mp4";
 import { Button } from "./ui/button";
+import BackgroundVideo from "next-video/background-video";
 
 function Hero({ children }: PropsWithChildren<{}>) {
   const container = useRef(null);
@@ -13,8 +14,8 @@ function Hero({ children }: PropsWithChildren<{}>) {
     target: container,
     offset: ["start start", "end end"],
   });
-  const scrollOpacity = useTransform(scrollYProgress, [0, 0.6], [0.95, 1]);
-  const scrollFadeOut = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scrollOpacity = useTransform(scrollYProgress, [0, 0.25], [0.5, 0.9]);
+  const scrollFadeOut = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
   const heroBgScale = useTransform(scrollYProgress, [0, 1], [1, 1.5], {
     ease: easeIn,
   });
@@ -26,41 +27,32 @@ function Hero({ children }: PropsWithChildren<{}>) {
   };
 
   return (
-    <div ref={container} className="h-[300vh] relative">
-      <div className="h-[100vh] sticky top-0 overflow-hidden z-0">
-        <div className="w-full h-full absolute t-0 flex items-center justify-center">
+    <div ref={container} className="h-[280vh] relative">
+      <div className="h-[100vh] sticky top-0 overflow-hidden z-0 relative">
+        <div className="w-full h-full absolute t-0 flex items-center justify-center z-0">
           <motion.div
             className="w-full h-full overflow-hidden relative"
             style={{
               scale: heroBgScale,
             }}
           >
-            <Video src={previewVideo} controls={false} muted={true} autoPlay />
-            <div className="bg-black/40 inset-0 absolute"></div>
+            <Video src={previewVideo} controls={false} muted={true} />
+            <div className="bg-black/35 inset-0 absolute"></div>
           </motion.div>
         </div>
         <motion.div
           style={{
             opacity: scrollFadeOut,
           }}
-          className="h-full"
         >
           <PaddingBox
             horizontal="xl"
-            vertical="xl"
-            className="flex flex-col justify-center items-start gap-4 h-full relative max-w-[100vw] md:max-w-[80vw] lg:max-w-[70vw] xl:max-w-[60vw]"
+            className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-col justify-end items-start gap-4 max-w-[100vw] md:max-w-[80vw] lg:max-w-[70vw] xl:max-w-[60vw]"
           >
-            <h1 className="text-white drop-shadow-lg text-[5rem] text-3xl md:text-5xl lg:text-6xl">
+            <span className="text-white drop-shadow-lg text-[5rem] text-3xl md:text-5xl lg:text-6xl font-bebas-neue">
               Mit <span className="text-primary-foreground">Cine Eagle</span>{" "}
               neue Höhen erreichen!
-            </h1>
-            <p className="text-white text-lg lg:text-2xl leading-8 text-balance drop-shadow-md font-medium">
-              Mein Name ist{" "}
-              <span className="text-primary-foreground">Fabian Lessmann</span> –
-              leidenschaftlicher Drohnenpilot und kreativer Filmemacher.
-              Gemeinsam bringen wir Ihre Visionen in beeindruckenden Bildern zum
-              Leben!
-            </p>
+            </span>
             <Button
               variant={"default"}
               size={"lg"}
@@ -81,14 +73,13 @@ function Hero({ children }: PropsWithChildren<{}>) {
         </motion.div>
       </div>
 
-      <motion.div
-        style={{
-          opacity: scrollOpacity,
-        }}
-        className="h-[200vh] w-full bg-white z-20 absolute bottom-0"
-      >
-        {children}
-      </motion.div>
+      <div className="h-[180vh] w-full  absolute bottom-0 z-20">
+        <motion.div
+          style={{ opacity: scrollOpacity }}
+          className="bg-white  absolute inset-0 -z-10"
+        />
+        <div className="opacity-100">{children}</div>
+      </div>
     </div>
   );
 }

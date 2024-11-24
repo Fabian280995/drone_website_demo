@@ -25,6 +25,7 @@ function ZoomParallax() {
   const scale6 = useTransform(scrollYProgress, [0, 1], [1, 6]);
   const scale8 = useTransform(scrollYProgress, [0, 1], [1, 8]);
   const scale9 = useTransform(scrollYProgress, [0, 1], [1, 9]);
+  const scrollOpacity = useTransform(scrollYProgress, [0.6, 1], [0, 1]);
 
   // Standard: 4,9,8,8,8,8,8
 
@@ -71,6 +72,16 @@ function ZoomParallax() {
             </motion.div>
           );
         })}
+        <motion.div
+          style={{
+            opacity: scrollOpacity,
+          }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50"
+        >
+          <span className="text-white text-2xl md:text-4xl xl:text-6xl text-center font-bebas-neue drop-shadow-md font-bold">
+            Ich freue mich auf die Zusammenarbeit!
+          </span>
+        </motion.div>
       </div>
     </div>
   );
