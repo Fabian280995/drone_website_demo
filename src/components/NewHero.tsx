@@ -1,19 +1,12 @@
 "use client";
 import { easeIn, motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRightCircle, ChevronDown } from "lucide-react";
 import Video from "next-video";
-import { PropsWithChildren, useEffect, useRef, useState } from "react";
+import { PropsWithChildren, useRef } from "react";
 import GogglesView from "./GogglesView";
 import PaddingBox from "./layout/PaddingBox";
-import previewVideo from "/videos/Castle Appears in autnumnal and foggy forest.mp4";
 import { Button } from "./ui/button";
-import BackgroundVideo from "next-video/background-video";
-import {
-  ArrowBigRight,
-  ArrowBigRightDash,
-  ArrowRight,
-  ArrowRightCircle,
-  ChevronDown,
-} from "lucide-react";
+import previewVideo from "/videos/Castle Appears in autnumnal and foggy forest.mp4";
 
 function Hero({ children }: PropsWithChildren<{}>) {
   const container = useRef(null);
@@ -27,15 +20,15 @@ function Hero({ children }: PropsWithChildren<{}>) {
     ease: easeIn,
   });
 
-  const handleButtonClick = () => {
+  const handleButtonClick = (destination: string) => {
     // scroll to section #contact
-    const contactSection = document.getElementById("contact");
+    const contactSection = document.getElementById(destination);
     contactSection?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <div ref={container} className="h-[280vh] relative">
-      <div className="h-[100vh] sticky top-0 overflow-hidden z-0 relative">
+      <div className="h-[100vh] sticky top-0 overflow-hidden z-0">
         <div className="w-full h-full absolute t-0 flex items-center justify-center z-0">
           <motion.div
             className="w-full h-full overflow-hidden relative"
@@ -63,7 +56,7 @@ function Hero({ children }: PropsWithChildren<{}>) {
               variant={"ghost"}
               size={"lg"}
               className="text-primary-foreground p-0 font-bold text-xl hover:scale-105 target:scale-95 hover:bg-transparent hover:text-primary transition-all"
-              onClick={handleButtonClick}
+              onClick={() => handleButtonClick("contact")}
             >
               <ArrowRightCircle />
               Jetzt kontaktieren
@@ -71,16 +64,19 @@ function Hero({ children }: PropsWithChildren<{}>) {
           </PaddingBox>
           <PaddingBox
             vertical="xs"
-            horizontal="xl"
             className="absolute bottom-0 left-0 right-0 grid grid-cols-3 h-[14vh] "
           >
             <div className=""></div>
-            <div className="h-full w-full flex items-center justify-center">
+            <button
+              type="button"
+              onClick={() => handleButtonClick("services")}
+              className="h-full w-full flex items-center justify-center"
+            >
               <ChevronDown
                 size={48}
                 className="text-secondary-foreground opacity-100 animate-pulse"
               />
-            </div>
+            </button>
             <div className="flex items-start justify-center ">
               <GogglesView />
             </div>
