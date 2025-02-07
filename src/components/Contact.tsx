@@ -63,8 +63,10 @@ const ContactSection: React.FC = () => {
   return (
     <section id="contact" className="h-[calc(100vh-80px)]">
       <PaddingBox vertical="xl" horizontal="xl">
-        <h2 className="text-center">Kontaktieren Sie mich</h2>
-        <div className="max-w-md mx-auto">
+        <p className="text-2xl md:text-4xl text-center">
+          Ich freue mich auf <b>Ihre</b> Anfrage!
+        </p>
+        <div className="max-w-4xl mx-auto mt-8">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <FormField
@@ -114,6 +116,7 @@ const ContactSection: React.FC = () => {
                     <FormControl>
                       <div className="relative">
                         <Textarea
+                          rows={6}
                           placeholder="Ihre Nachricht"
                           {...field}
                           className={
@@ -136,19 +139,21 @@ const ContactSection: React.FC = () => {
                   </FormItem>
                 )}
               />
-              <Button type="submit">Nachricht senden</Button>
+              <Button type="submit" className="text-white">
+                Nachricht senden
+              </Button>
             </form>
           </Form>
         </div>
         <div className="mt-12 text-center space-y-2">
           <p className="flex items-center justify-center">
-            <Phone className="mr-2" /> +49 123 456789
+            <Phone className="mr-2" /> +49 1511 6773509
           </p>
           <p className="flex items-center justify-center">
             <Mail className="mr-2" /> kontakt@fpv-drohnenfluege.de
           </p>
           <p className="flex items-center justify-center">
-            <MapPin className="mr-2" /> Musterstadt, Deutschland
+            <MapPin className="mr-2" /> Hilden, Deutschland
           </p>
         </div>
       </PaddingBox>

@@ -1,40 +1,50 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useAnimation } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
 import PaddingBox from "./layout/PaddingBox";
 
 const NavLinks = [
   { title: "Home", href: "#home" },
   { title: "Leistungen", href: "#services" },
+  { title: "Zusammenarbeit", href: "#workflow" },
   { title: "Galerie", href: "#gallery" },
   { title: "Kontakt", href: "#contact" },
 ];
 
 function Header() {
+  const previousScroll = useRef(0);
   const [isScrolled, setIsScrolled] = useState(false);
-  const controls = useAnimation();
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      const windowHeight = window.innerHeight;
 
-      // Check if scroll position is beyond 100vh
-      setIsScrolled(scrollTop > windowHeight - windowHeight * 0.5);
+      if (scrollTop > previousScroll.current && scrollTop > 10) {
+        setIsScrolled(true);
+      } else if (scrollTop < previousScroll.current && scrollTop === 0) {
+        setIsScrolled(false);
+      }
+
+      previousScroll.current = scrollTop;
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [controls]);
+  }, []);
+
+  // Funktion, um nach oben zu scrollen, wenn "Home" geklickt wird
+  const handleHomeClick = (e: React.MouseEvent) => {
+    e.preventDefault(); // Verhindert das Standard-Anchor-Verhalten
+    window.scrollTo({ top: 0, behavior: "smooth" }); // Scrollt sanft nach oben
+  };
 
   return (
     <header
       className={cn(
-        `fixed top-0 z-50 w-full flex items-center transition-colors duration-200`,
-        isScrolled ? "bg-white  shadow-md" : "bg-transparent"
+        `fixed top-0 z-50 w-full flex items-center transition-all duration-200 bg-white`,
+        isScrolled ? "h-[6rem]" : "h-[10rem]"
       )}
     >
       <PaddingBox
@@ -42,16 +52,16 @@ function Header() {
         horizontal="xl"
         className="w-full flex justify-between items-center"
       >
-        <Logo dark={isScrolled} />
+        <Logo />
         <nav>
           <ul className="flex space-x-4">
             {NavLinks.map((link) => (
               <li key={link.title}>
                 <a
                   href={link.href}
+                  onClick={link.title === "Home" ? handleHomeClick : undefined} // Scroll-Funktion nur für "Home"
                   className={cn(
-                    "font-geist text-2xl transition-colors duration-200 group",
-                    isScrolled ? "text-gray-900" : "text-white"
+                    "uppercase text-xl transition-colors duration-200 group text-gray-400"
                   )}
                 >
                   {link.title.split("").map((char, index) => (

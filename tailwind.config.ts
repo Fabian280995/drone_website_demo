@@ -11,10 +11,7 @@ export default {
     extend: {
       fontFamily: {
         mono: ["Space mono", "monospace"],
-        "geist-mono": "var(--font-geist-mono)",
-        geist: "var(--font-geist-sans)",
-        audiowide: "var(--font-audiowide)",
-        "bebas-neue": "var(--font-bebas-neue)",
+        montserrat: "var(--font-montserrat)",
       },
       colors: {
         background: "hsl(var(--background))",

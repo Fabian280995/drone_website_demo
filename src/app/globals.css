@@ -7,12 +7,12 @@ html {
 }
 
 body {
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
 }
 
 /* Base Heading Styles */
 .heading {
-  @apply font-bold text-gray-700 font-bebas-neue;
+  @apply font-medium font-montserrat;
 }
 
 /* Specific Styles for Each Heading */
@@ -49,13 +49,13 @@ h6 {
     --popover: 0 0% 100%;
     --popover-foreground: 20 14.3% 4.1%;
 
-    /* Primary Colors */
-    --primary: 200 90% 60%; /* Hauptfarbe: Blau */
-    --primary-foreground: 200 80% 70%; /* Hellere Abstufung */
+    /* Primary Colors - Teal mit mehr Grün (#497D74) */
+    --primary: 165 25% 39%;
+    --primary-foreground: 165 25% 55%; /* Etwas heller für Kontrast */
 
     /* Secondary Colors */
-    --secondary: 210 16% 40%; /* Hauptfarbe: Blau-Grau */
-    --secondary-foreground: 210 16% 70%; /* Hellere Abstufung */
+    --secondary: 210 16% 40%;
+    --secondary-foreground: 210 16% 70%;
 
     /* Muted Colors */
     --muted: 60 4.8% 95.9%;
@@ -66,12 +66,12 @@ h6 {
     --accent-foreground: 60 4.8% 80%;
 
     /* Destructive Colors */
-    --destructive: 0 65% 50%; /* Hauptfarbe: Rot */
-    --destructive-foreground: 0 65% 70%; /* Hellere Abstufung */
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 65% 70%;
 
     /* Success Colors */
-    --success: 145 63% 42%; /* Hauptfarbe: Grün */
-    --success-foreground: 145 63% 60%; /* Hellere Abstufung */
+    --success: 145 63% 42%;
+    --success-foreground: 145 63% 60%;
 
     /* Border/Input Colors */
     --border: 20 5.9% 90%;
@@ -84,8 +84,9 @@ h6 {
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
+    --radius: 0rem;
   }
+
   .dark {
     --background: 20 14.3% 4.1%;
     --foreground: 60 9.1% 97.8%;
@@ -94,13 +95,13 @@ h6 {
     --popover: 20 14.3% 4.1%;
     --popover-foreground: 60 9.1% 97.8%;
 
-    /* Primary Colors */
-    --primary: 200 90% 60%; /* Hauptfarbe: Blau */
-    --primary-foreground: 200 90% 75%; /* Hellere Abstufung */
+    /* Primary Colors - Abgedunkelte Version */
+    --primary: 165 25% 30%;
+    --primary-foreground: 165 25% 45%;
 
     /* Secondary Colors */
-    --secondary: 210 16% 25%; /* Hauptfarbe: Dunkel-Blau-Grau */
-    --secondary-foreground: 210 16% 50%; /* Hellere Abstufung */
+    --secondary: 210 16% 25%;
+    --secondary-foreground: 210 16% 50%;
 
     /* Muted Colors */
     --muted: 12 6.5% 15.1%;
@@ -111,12 +112,12 @@ h6 {
     --accent-foreground: 12 6.5% 30%;
 
     /* Destructive Colors */
-    --destructive: 0 62.8% 40%; /* Hauptfarbe: Rot */
-    --destructive-foreground: 0 62.8% 60%; /* Hellere Abstufung */
+    --destructive: 0 62.8% 40%;
+    --destructive-foreground: 0 62.8% 60%;
 
     /* Success Colors */
-    --success: 145 63% 42%; /* Hauptfarbe: Grün */
-    --success-foreground: 145 63% 60%; /* Hellere Abstufung */
+    --success: 145 63% 42%;
+    --success-foreground: 145 63% 60%;
 
     /* Border/Input Colors */
     --border: 12 6.5% 15.1%;

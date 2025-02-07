@@ -1,8 +1,10 @@
+import Banner from "@/components/Banner";
 import Contact from "@/components/Contact"; // Importiere die neue Komponente
-import Gallery from "@/components/Gallery";
+import CustomersSlider from "@/components/CustomersSlider";
 import Header from "@/components/Header";
-import Hero from "@/components/NewHero";
+import Introduction from "@/components/Introduction";
 import Services from "@/components/Services";
+import Workflow from "@/components/Workflow";
 
 export default function Portfolio() {
   return (
@@ -10,10 +12,11 @@ export default function Portfolio() {
       <Header />
       {/* <div id="home" className="h-20 bg-background" /> */}
       <main id="home">
-        <Hero>
-          <Services />
-        </Hero>
-        <Gallery />
+        <Banner />
+        <CustomersSlider />
+        <Introduction />
+        <Services />
+        <Workflow />
         <Contact />
       </main>
 

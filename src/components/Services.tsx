@@ -1,120 +1,102 @@
-"use client";
+import React from "react";
 import PaddingBox from "./layout/PaddingBox";
-import Video from "next-video";
-import previewVideo from "/videos/Castle Appears in autnumnal and foggy forest.mp4";
-import { motion } from "framer-motion";
-import { Asset } from "next-video/dist/assets.js";
-import { cn } from "@/lib/utils";
+import avata2 from "@/assets/images/avata2.png";
+import mark5 from "@/assets/images/mark5.png";
+import djiLogo from "@/assets/systems/dji-logo.png";
+import goproLogo from "@/assets/systems/gopro-logo.png";
 
-interface ServiceSectionProps {
+import Image, { StaticImageData } from "next/image";
+
+interface Drone {
+  src: StaticImageData | string;
+  alt: string;
   title: string;
   description: string;
-  videoSrc: Asset;
-  inverted?: boolean;
-  number?: number;
+  systems?: {
+    src: StaticImageData | string;
+  }[];
 }
 
-const ServiceSection = ({
-  title,
-  description,
-  videoSrc,
-  inverted = false,
-  number = 0,
-}: ServiceSectionProps) => {
-  const numberString: string = (number <= 9 ? "0" : "") + number.toString();
-  const TextSection = () => (
-    <motion.div
-      className={cn(
-        "flex flex-col justify-center relative",
-        inverted ? "items-start ml-8" : "items-end mr-8"
+const DroneSystem = ({ src, alt, title, description, systems }: Drone) => {
+  return (
+    <div className="flex flex-col items-center">
+      <Image
+        src={src}
+        alt={alt}
+        height={320}
+        width={320}
+        className="object-cover object-center"
+      />
+      {systems && systems?.length > 0 && (
+        <div className="flex space-x-4 mt-4">
+          {systems.map((system, index) => (
+            <Image
+              key={system.src.toString() + alt + index}
+              src={system.src}
+              alt={system.src.toString()}
+              height={64}
+              width={64}
+              className="object-cover object-center bg-red-200"
+            />
+          ))}
+        </div>
       )}
-      initial={{ opacity: 0, x: !inverted ? -100 : 100 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, amount: 0.5 }}
-      transition={{ duration: 0.8, ease: "circOut" }}
-    >
-      <span
-        className={cn(
-          "absolute top-1/2 font-bebas-neue font-bold text-[8rem] md:text-[12rem] lg:text-[18rem] opacity-15 text-gray-400 -translate-y-1/2 -z-10",
-          !inverted ? "left-0" : "right-0"
-        )}
-      >
-        {numberString}
-      </span>
-      <h3 className={cn(`mb-2`, inverted ? "text-left" : "text-right")}>
-        {title}
-      </h3>
-      <p
-        className={cn(
-          `text-lg lg:text-xl leading-relaxed`,
-          inverted ? "text-left" : "text-right"
-        )}
-      >
+      <h3 className="text-2xl font-bold">{title}</h3>
+      <p className="text-lg text-center leading-relaxed tracking-wide text-gray-700">
         {description}
       </p>
-    </motion.div>
-  );
-
-  const VideoSection = () => (
-    <motion.div
-      initial={{ opacity: 0, x: !inverted ? 100 : -100 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, amount: 0.5 }}
-      transition={{ duration: 0.8, ease: "circOut" }}
-    >
-      <Video src={videoSrc} controls={false} loop />
-    </motion.div>
-  );
-
-  return (
-    <PaddingBox vertical="md">
-      <div className={cn("grid grid-cols-1 md:grid-cols-2")}>
-        {!inverted && <TextSection />}
-        <VideoSection />
-        {inverted && <TextSection />}
-      </div>
-    </PaddingBox>
+    </div>
   );
 };
 
 function Services() {
-  const services = [
+  const drones = [
     {
-      title: "Drehtag",
-      description:
-        "Am Drehtag setzen wir Ihre Ideen in die Realität um. Mit modernster Technik und einem Auge für Details erfassen wir beeindruckende Luft- und Bodenaufnahmen.",
-      videoSrc: previewVideo,
+      src: avata2,
+      alt: "avata2",
+      title: "avata2",
+      description: "avata2",
+      systems: [
+        {
+          src: djiLogo,
+        },
+      ],
     },
     {
-      title: "Postproduktion",
-      description:
-        "In der Postproduktion veredeln wir Ihre Aufnahmen mit professionellem Color Grading, präzisem Schnitt und visuellen Effekten.",
-      videoSrc: previewVideo,
-    },
-    {
-      title: "Auslieferung",
-      description:
-        "Nach der Fertigstellung erhalten Sie die finalen Aufnahmen in höchster Qualität – perfekt abgestimmt auf Ihre Bedürfnisse.",
-      videoSrc: previewVideo,
+      src: mark5,
+      alt: "mark5",
+      title: "mark5",
+      description: "mark5",
+      systems: [
+        {
+          src: djiLogo,
+        },
+        {
+          src: goproLogo,
+        },
+      ],
     },
   ];
 
   return (
-    <section id="services" className="w-full h-full">
-      <PaddingBox top="xl" bottom="lg" horizontal="xl" className="h-full">
-        <h2 className="text-center">So arbeiten wir!</h2>
-        <div className="flex flex-col justify-evenly h-full">
-          {services.map((service, index) => (
-            <ServiceSection
-              key={index}
-              {...service}
-              inverted={index % 2 !== 0}
-              number={index + 1}
+    <div id="services" className="">
+      <PaddingBox top="xl" bottom="lg" horizontal="2xl" className="mt-[10rem]">
+        <p className="text-2xl md:text-4xl text-center">
+          Die <b>beste Technik</b> für Ihr <b>Projekt</b>
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 mt-8">
+          {drones.map((drone, index) => (
+            <DroneSystem
+              key={drone.src.toString() + "_" + index}
+              src={drone.src}
+              alt={drone.alt}
+              title={drone.title}
+              description={drone.description}
             />
           ))}
         </div>
       </PaddingBox>
-    </section>
+    </div>
   );
 }
 
