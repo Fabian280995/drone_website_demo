@@ -41,7 +41,7 @@ const WorkFlowStep = ({
     >
       <span
         className={cn(
-          "absolute top-1/2 font-bold text-[8rem] md:text-[12rem] lg:text-[18rem] opacity-15 text-gray-400 -translate-y-1/2 z-0",
+          "absolute top-1/2 font-bold text-[6rem] md:text-[8rem] lg:text-[12rem] xl:text-[18rem] opacity-15 text-gray-400 -translate-y-1/2 z-0",
           !inverted ? "left-0" : "right-0"
         )}
       >

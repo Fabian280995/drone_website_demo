@@ -1,26 +1,11 @@
-import React from "react";
 import PaddingBox from "./layout/PaddingBox";
-import avata2 from "@/assets/images/avata2.png";
-import mark5 from "@/assets/images/mark5.png";
-import djiLogo from "@/assets/systems/dji-logo.png";
-import goproLogo from "@/assets/systems/gopro-logo.png";
 
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import Textblock from "./ui/Textblock";
 
-type Drone = {
-  src: StaticImageData | string;
-  alt: string;
-  title: string;
-  name: string;
-  description: string;
-  highlights?: string[];
-};
-
-type Spec = {
-  src: StaticImageData | string;
-  alt: string;
-};
+import { Drone, drones } from "@/data/drones";
+import { Service, services } from "@/data/services";
+import { Spec, specs } from "@/data/specs";
 
 interface DroneSystemProps {
   drone: Drone;
@@ -49,68 +34,14 @@ const DroneSystem = ({ drone }: DroneSystemProps) => {
 };
 
 function Services() {
-  const drones: Drone[] = [
-    {
-      src: avata2,
-      alt: "avata2",
-      name: "DJI Avata 2",
-      title: "Perfekte Stabilität & immersive Aufnahmen",
-      description:
-        "Die DJI Avata 2 liefert stabile und flüssige 4K-Aufnahmen mit bis zu 100FPS. Dank des Propellerschutzes ist sie perfekt für sichere Flüge in Innenräumen oder in der Nähe von Menschen.",
-      highlights: [
-        "DJI Avata 2",
-        "4K/100FPS",
-        "stabile und flüssige Aufnahmen",
-        "Propellerschutz",
-        "sichere Flüge",
-        "Innenräume",
-        "weiche Kamerafahrten",
-        "hochwertige Imagefilme",
-        "Eventaufnahmen",
-      ],
-    },
-    {
-      src: mark5,
-      alt: "mark5",
-      name: "5'' FPV-Drohne",
-      title: "Ultimative Dynamik & Geschwindigkeit",
-      description:
-        "Die 5'' FPV-Drohne liefert rasante, dynamische Luftaufnahmen mit bis zu 4K/120FPS. Zusätzlich kann sie eine hochauflösende Action-Kamera tragen, um Aufnahmen in bester Qualität zu liefern. Sie ist schnell, wendig und perfekt für actionreiche Verfolgungsszenen oder spektakuläre Perspektiven.",
-      highlights: [
-        "5'' FPV-Drohne",
-        "4K/120FPS",
-        "dynamische Luftaufnahmen",
-        "hochauflösende Action-Kamera",
-        "beste Qualität",
-        "schnell und wendig",
-        "actionreiche Verfolgungsszenen",
-        "spektakuläre Perspektiven",
-        "kompakte Größe",
-        "enge Lücken",
-        "Hindernisse",
-      ],
-    },
-  ];
-
-  const specs: Spec[] = [
-    {
-      src: djiLogo,
-      alt: "DJI Logo",
-    },
-    {
-      src: goproLogo,
-      alt: "GoPro Logo",
-    },
-  ];
-
   return (
-    <div id="services" className="bg-primary/5">
-      <PaddingBox vertical="xl" horizontal="2xl" className="mt-[10rem]">
+    <div id="services" className="bg-gray-100/40">
+      <PaddingBox vertical="lg" className="mt-[10rem] max-w-7xl mx-auto p-8">
         <p className="text-2xl md:text-4xl text-center">
           Die <b>beste Technik</b> für Ihr <b>Projekt</b>
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {drones.map((drone, index) => (
+          {drones.map((drone: Drone, index: number) => (
             <DroneSystem
               key={drone.src.toString() + "_" + index}
               drone={drone}
@@ -118,7 +49,7 @@ function Services() {
           ))}
         </div>
         <div className="flex items-center justify-center gap-12 mt-12">
-          {specs.map((spec, index) => (
+          {specs.map((spec: Spec, index: number) => (
             <Image
               key={spec.src.toString() + "_" + index}
               src={spec.src}
@@ -126,6 +57,18 @@ function Services() {
               height={100}
               width={100}
             />
+          ))}
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-12 mt-10 mx-auto">
+          {services.map((service: Service, index: number) => (
+            <div
+              key={index}
+              className="flex flex-col items-center text-center p-6 border rounded-lg shadow-lg bg-white hover:shadow-xl transition"
+            >
+              <service.icon className="h-12 w-12 text-primary" />
+              <h3 className="text-xl font-semibold mt-4">{service.title}</h3>
+              <p className="text-gray-500 mt-2">{service.alt}</p>
+            </div>
           ))}
         </div>
       </PaddingBox>

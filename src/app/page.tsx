@@ -10,10 +10,9 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
-      {/* <div id="home" className="h-20 bg-background" /> */}
       <main id="home">
         <Banner />
-        <CustomersSlider />
+        {/* <CustomersSlider /> */}
         <Introduction />
         <Services />
         <Workflow />
