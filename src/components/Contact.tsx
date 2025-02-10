@@ -64,7 +64,7 @@ const ContactSection: React.FC = () => {
     <section id="contact" className="h-[calc(100vh-80px)]">
       <PaddingBox
         vertical="xl"
-        horizontal="xl"
+        horizontal="lg"
         className="flex flex-col items-center justify-center h-full"
       >
         <h3 className="text-center">

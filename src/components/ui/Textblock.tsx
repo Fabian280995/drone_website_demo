@@ -8,8 +8,13 @@ interface TextblockProps {
 }
 
 function Textblock({ text, highlightedWords = [], className }: TextblockProps) {
+  const textStyles = cn(
+    "text-lg leading-relaxed tracking-wide text-gray-700",
+    className
+  );
+
   if (!highlightedWords.length) {
-    return <div>{text}</div>;
+    return <div className={textStyles}>{text}</div>;
   }
 
   // Erstelle eine Regex, um die Wörter unabhängig von Satzzeichen zu finden
@@ -18,12 +23,7 @@ function Textblock({ text, highlightedWords = [], className }: TextblockProps) {
   const parts = text.split(wordRegex);
 
   return (
-    <p
-      className={cn(
-        "text-lg leading-relaxed tracking-wide text-gray-700",
-        className
-      )}
-    >
+    <p className={textStyles}>
       {parts.map((part, index) =>
         highlightedWords.some(
           (word) => word.toLowerCase() === part.toLowerCase()

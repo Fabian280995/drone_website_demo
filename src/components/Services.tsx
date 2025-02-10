@@ -63,11 +63,14 @@ function Services() {
           {services.map((service: Service, index: number) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center p-6 border rounded-lg shadow-lg bg-white hover:shadow-xl transition"
+              className="flex flex-col items-center text-center p-6 rounded-lg shadow-sm bg-white hover:shadow-lg transition"
             >
               <service.icon className="h-12 w-12 text-primary" />
               <h3 className="text-xl font-semibold mt-4">{service.title}</h3>
-              <p className="text-gray-500 mt-2">{service.alt}</p>
+              <Textblock
+                text={service.alt}
+                className="text-sm text-gray-400 font-semibold mt-4"
+              />
             </div>
           ))}
         </div>
