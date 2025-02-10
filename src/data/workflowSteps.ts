@@ -13,7 +13,7 @@ export const workflowSteps: WorkflowStep[] = [
   {
     title: "Briefing",
     description:
-      "In einem ersten Gespräch lernen wir Ihre Wünsche und Anforderungen kennen und entwickeln gemeinsam ein Konzept für Ihr Projekt.",
+      "In einem ersten Gespräch lerne ich Ihre Wünsche und Anforderungen kennen und entwickel mit Ihnen gemeinsam ein Konzept für Ihr Projekt. Wir besprechen alles, für einen reibungslosen Ablauf.",
     videoSrc: previewVideo,
     highlighted: ["Gespräch", "Wünsche", "Anforderungen"],
   },
@@ -27,9 +27,14 @@ export const workflowSteps: WorkflowStep[] = [
   {
     title: "Postproduktion",
     description:
-      "In der Postproduktion veredeln wir Ihre Aufnahmen mit professionellem Color Grading, präzisem Schnitt und visuellen Effekten.",
+      "In der Postproduktion veredeln wir Ihre Aufnahmen mit professionellem Color Grading, präzisem Schnitt und visuellen Effekten. Nach Ihrem Wunsch stellen wir auch das Rohmaterial bereit.",
     videoSrc: previewVideo,
-    highlighted: ["Color Grading", "Schnitt", "visuellen Effekten"],
+    highlighted: [
+      "Color Grading",
+      "Schnitt",
+      "visuellen Effekten",
+      "Rohmaterial",
+    ],
   },
   {
     title: "Auslieferung",
