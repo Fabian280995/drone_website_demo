@@ -12,7 +12,7 @@ body {
 
 /* Base Heading Styles */
 .heading {
-  @apply font-medium font-montserrat;
+  @apply font-montserrat;
 }
 
 /* Specific Styles for Each Heading */
