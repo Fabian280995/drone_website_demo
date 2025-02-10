@@ -150,15 +150,26 @@ const ContactSection: React.FC = () => {
           </Form>
         </div>
         <div className="mt-12 text-center space-y-2">
-          <p className="flex items-center justify-center">
+          <a
+            href="tel:+4915116773509"
+            className="flex items-center justify-center hover:underline"
+          >
             <Phone className="mr-2" /> +49 1511 6773509
-          </p>
-          <p className="flex items-center justify-center">
-            <Mail className="mr-2" /> kontakt@fpv-drohnenfluege.de
-          </p>
-          <p className="flex items-center justify-center">
+          </a>
+          <a
+            href="mailto:fabianlessmann@cineeagle.com"
+            className="flex items-center justify-center hover:underline"
+          >
+            <Mail className="mr-2" /> fabianlessmann@cineeagle.com
+          </a>
+          <a
+            href="https://www.google.com/maps?q=40724+Hilden"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center hover:underline"
+          >
             <MapPin className="mr-2" /> Hilden, Deutschland
-          </p>
+          </a>
         </div>
       </PaddingBox>
     </section>
