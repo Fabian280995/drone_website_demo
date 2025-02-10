@@ -27,6 +27,7 @@ const WorkFlowStep = ({
 }: WorkFlowStepProps) => {
   const { title, description, videoSrc, highlighted } = workflowStep;
   const numberString: string = (number <= 9 ? "0" : "") + number.toString();
+
   const TextSection = () => (
     <motion.div
       className={cn(
@@ -40,7 +41,7 @@ const WorkFlowStep = ({
     >
       <span
         className={cn(
-          "absolute top-1/2 font-bold text-[8rem] md:text-[12rem] lg:text-[18rem] opacity-15 text-gray-400 -translate-y-1/2 -z-10",
+          "absolute top-1/2 font-bold text-[8rem] md:text-[12rem] lg:text-[18rem] opacity-15 text-gray-400 -translate-y-1/2 z-0",
           !inverted ? "left-0" : "right-0"
         )}
       >
@@ -81,6 +82,13 @@ const WorkFlowStep = ({
 
 function Workflow() {
   const workflowSteps: WorkflowStep[] = [
+    {
+      title: "Briefing",
+      description:
+        "In einem ersten Gespräch lernen wir Ihre Wünsche und Anforderungen kennen und entwickeln gemeinsam ein Konzept für Ihr Projekt.",
+      videoSrc: previewVideo,
+      highlighted: ["Gespräch", "Wünsche", "Anforderungen"],
+    },
     {
       title: "Drehtag",
       description:
