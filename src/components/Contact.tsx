@@ -62,11 +62,15 @@ const ContactSection: React.FC = () => {
 
   return (
     <section id="contact" className="h-[calc(100vh-80px)]">
-      <PaddingBox vertical="xl" horizontal="xl">
-        <p className="text-2xl md:text-4xl text-center">
+      <PaddingBox
+        vertical="xl"
+        horizontal="xl"
+        className="flex flex-col items-center justify-center h-full"
+      >
+        <h3 className="text-center">
           Ich freue mich auf <b>Ihre</b> Anfrage!
-        </p>
-        <div className="max-w-4xl mx-auto mt-8">
+        </h3>
+        <div className="w-full max-w-5xl mx-auto mt-8">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <FormField
