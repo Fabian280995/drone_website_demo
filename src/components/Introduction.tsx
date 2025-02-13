@@ -1,7 +1,7 @@
 import React from "react";
 import PaddingBox from "./layout/PaddingBox";
 import WobblyFrame from "./ui/WobblyFrame";
-import profileImage from "@/assets/images/goggles.jpg";
+import profileImage from "@/assets/images/profilbild.jpeg";
 import Textblock from "./ui/Textblock";
 
 function Introduction() {

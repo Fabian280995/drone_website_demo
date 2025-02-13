@@ -31,7 +31,7 @@ export default function WobblyFrame({
       <Image
         src={src}
         alt={alt}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover object-center"
         placeholder="blur"
       />
     </motion.div>
