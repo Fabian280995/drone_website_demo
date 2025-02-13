@@ -1,11 +1,15 @@
 import { Asset } from "next-video/dist/assets.js";
+import { StaticImageData } from "next/image";
 
 import previewVideo from "/videos/Castle Appears in autnumnal and foggy forest.mp4";
+import briefingImage from "@/assets/images/briefing.jpg";
+import shootingDayVideo from "/videos/dji_googles.mov";
 
 export type WorkflowStep = {
   title: string;
   description: string;
-  videoSrc: Asset;
+  videoSrc?: Asset;
+  imageSrc?: StaticImageData;
   highlighted?: string[];
 };
 
@@ -14,14 +18,14 @@ export const workflowSteps: WorkflowStep[] = [
     title: "Briefing",
     description:
       "In einem ersten Gespräch lerne ich Ihre Wünsche und Anforderungen kennen und entwickel mit Ihnen gemeinsam ein Konzept für Ihr Projekt. Wir besprechen alles, für einen reibungslosen Ablauf.",
-    videoSrc: previewVideo,
+    imageSrc: briefingImage,
     highlighted: ["Gespräch", "Wünsche", "Anforderungen"],
   },
   {
     title: "Drehtag",
     description:
       "Am Drehtag setzen wir Ihre Ideen in die Realität um. Mit modernster Technik und einem Auge für Details erfassen wir beeindruckende Luft- und Bodenaufnahmen.",
-    videoSrc: previewVideo,
+    videoSrc: shootingDayVideo,
     highlighted: ["modernster Technik", "Luft", "Bodenaufnahmen"],
   },
   {
