@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -17,6 +17,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import PaddingBox from "./layout/PaddingBox";
+import { useContactStore } from "@/store/useContactStore";
 
 const MAX_MESSAGE_LENGTH = 500;
 
@@ -26,6 +27,9 @@ const formSchema = z.object({
   }),
   email: z.string().email({
     message: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+  }),
+  subject: z.string().min(5, {
+    message: "Betreff muss mindestens 5 Zeichen lang sein.",
   }),
   message: z
     .string()
@@ -39,12 +43,14 @@ const formSchema = z.object({
 
 const ContactSection: React.FC = () => {
   const [messageLength, setMessageLength] = useState(0);
+  const subject = useContactStore((state) => state.subject);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
       email: "",
+      subject: "",
       message: "",
     },
   });
@@ -59,6 +65,12 @@ const ContactSection: React.FC = () => {
     form.reset();
     setMessageLength(0);
   }
+
+  useEffect(() => {
+    if (subject) {
+      form.setValue("subject", subject);
+    }
+  }, [subject, form.setValue]);
 
   return (
     <section id="contact" className="h-[calc(100vh-80px)]">
@@ -104,6 +116,25 @@ const ContactSection: React.FC = () => {
                         {...field}
                         className={
                           form.formState.errors.email ? "border-red-500" : ""
+                        }
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="subject"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Betreff</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Betreff Ihrer Nachricht"
+                        {...field}
+                        className={
+                          form.formState.errors.subject ? "border-red-500" : ""
                         }
                       />
                     </FormControl>

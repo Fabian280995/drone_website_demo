@@ -4,8 +4,8 @@ import Image from "next/image";
 import Textblock from "./ui/Textblock";
 
 import { Drone, drones } from "@/data/drones";
-import { Service, services } from "@/data/services";
 import { Spec, specs } from "@/data/specs";
+import ServicesList from "./ui/ServicesList";
 
 interface DroneSystemProps {
   drone: Drone;
@@ -36,7 +36,7 @@ const DroneSystem = ({ drone }: DroneSystemProps) => {
 function Services() {
   return (
     <div id="services" className="bg-gray-100/40">
-      <PaddingBox vertical="lg" className="mt-[10rem] max-w-7xl mx-auto p-8">
+      <PaddingBox vertical="xl" className="mt-[10rem] max-w-7xl mx-auto p-8">
         <p className="text-2xl md:text-4xl text-center">
           Die <b>beste Technik</b> für Ihr <b>Projekt</b>
         </p>
@@ -59,21 +59,7 @@ function Services() {
             />
           ))}
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-12 mt-10 mx-auto">
-          {services.map((service: Service, index: number) => (
-            <div
-              key={index}
-              className="flex flex-col items-center text-center p-6 rounded-lg shadow-sm bg-white hover:shadow-lg transition"
-            >
-              <service.icon className="h-12 w-12 text-primary" />
-              <h3 className="text-xl font-semibold mt-4">{service.title}</h3>
-              <Textblock
-                text={service.alt}
-                className="text-sm text-gray-400 font-semibold mt-4"
-              />
-            </div>
-          ))}
-        </div>
+        <ServicesList />
       </PaddingBox>
     </div>
   );
