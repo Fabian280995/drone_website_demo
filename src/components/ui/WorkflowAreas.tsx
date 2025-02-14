@@ -32,7 +32,7 @@ export const WorkflowStepTextArea = ({
       )}
       initial={{ opacity: 0, x: !inverted ? -100 : 100 }}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: false, amount: 0.5 }}
+      viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <span
@@ -70,16 +70,21 @@ export const WorkflowStepVideoArea = ({
     <motion.div
       initial={{ opacity: 0, x: !inverted ? 100 : -100 }}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: false, amount: 0.5 }}
+      viewport={{ once: true, amount: 0.5 }}
       onViewportEnter={() => {
         if (videoRef.current) {
-          videoRef.current.muted = true; // Muted setzen für Autoplay
+          videoRef.current.muted = true; // Muted für Autoplay aktivieren
           videoRef.current
             .play()
             .catch((err) => console.warn("Autoplay blockiert:", err));
         }
       }}
-      onViewportLeave={() => videoRef.current?.pause()}
+      onViewportLeave={() => {
+        if (videoRef.current) {
+          videoRef.current.pause();
+          videoRef.current.currentTime = 0;
+        }
+      }}
       transition={{ duration: 0.8, ease: "circOut" }}
       className="aspect-video"
     >
@@ -88,7 +93,7 @@ export const WorkflowStepVideoArea = ({
         src={videoSrc}
         controls={false}
         muted
-        loop
+        loop={true}
         accentColor="#497D74"
       />
     </motion.div>
@@ -109,7 +114,7 @@ export const WorkflowStepImageArea = ({
   <motion.div
     initial={{ opacity: 0, x: !inverted ? 100 : -100 }}
     whileInView={{ opacity: 1, x: 0 }}
-    viewport={{ once: false, amount: 0.5 }}
+    viewport={{ once: true, amount: 0.5 }}
     transition={{ duration: 0.8, ease: "circOut" }}
     className="aspect-video "
   >
