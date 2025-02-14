@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
 import PaddingBox from "./layout/PaddingBox";
+import { Button } from "./ui/button";
 
 const NavLinks = [
   { title: "Home", href: "#home" },
@@ -52,33 +53,45 @@ function Header() {
         horizontal="xl"
         className="w-full flex justify-between items-center"
       >
-        <Logo />
-        <nav>
-          <ul className="flex space-x-4">
-            {NavLinks.map((link) => (
-              <li key={link.title}>
-                <a
-                  href={link.href}
-                  onClick={link.title === "Home" ? handleHomeClick : undefined} // Scroll-Funktion nur für "Home"
-                  className={cn(
-                    "uppercase text-xl transition-colors duration-200 group text-gray-400"
-                  )}
-                >
-                  {link.title.split("").map((char, index) => (
-                    <span
-                      key={index}
-                      className={`inline-block group-hover:text-primary-foreground delay-[${
-                        index * 500
-                      }ms]`}
-                    >
-                      {char}
-                    </span>
-                  ))}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <div className="flex-1 flex items-center gap-4 md:gap-8 lg:gap-12 xl:gap-16 2xl:gap-20">
+          <Logo />
+          <nav>
+            <ul className="flex space-x-4">
+              {NavLinks.map((link) => (
+                <li key={link.title}>
+                  <a
+                    href={link.href}
+                    onClick={
+                      link.title === "Home" ? handleHomeClick : undefined
+                    } // Scroll-Funktion nur für "Home"
+                    className={cn(
+                      "uppercase text-xl transition-colors duration-200 group text-gray-400"
+                    )}
+                  >
+                    {link.title.split("").map((char, index) => (
+                      <span
+                        key={index}
+                        className={`inline-block group-hover:text-primary-foreground delay-[${
+                          index * 500
+                        }ms]`}
+                      >
+                        {char}
+                      </span>
+                    ))}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+        <div className="flex items-center gap-2">
+          <Button className="px-4 py-6 bg-white border-gray-700 border-2 hover:border-primary hover:text-white text-gray-700 text-sm">
+            fabianlessmann@cineeagle.com
+          </Button>
+          <Button className="px-4 py-6 bg-white border-gray-700 border-2 hover:border-primary hover:text-white text-gray-700 text-sm">
+            +49 151 16773509
+          </Button>
+        </div>
       </PaddingBox>
     </header>
   );
