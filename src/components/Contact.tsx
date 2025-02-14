@@ -28,13 +28,13 @@ const formSchema = z.object({
   email: z.string().email({
     message: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
   }),
-  subject: z.string().min(5, {
-    message: "Betreff muss mindestens 5 Zeichen lang sein.",
+  subject: z.string().min(1, {
+    message: "Betreff muss mindestens 1 Zeichen lang sein.",
   }),
   message: z
     .string()
-    .min(10, {
-      message: "Nachricht muss mindestens 10 Zeichen lang sein.",
+    .min(5, {
+      message: "Nachricht muss mindestens 5 Zeichen lang sein.",
     })
     .max(MAX_MESSAGE_LENGTH, {
       message: `Nachricht darf nicht länger als ${MAX_MESSAGE_LENGTH} Zeichen sein.`,
@@ -55,15 +55,37 @@ const ContactSection: React.FC = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({
-      title: "Formular gesendet",
-      description:
-        "Vielen Dank für Ihre Nachricht. Wir werden uns bald bei Ihnen melden.",
-    });
-    form.reset();
-    setMessageLength(0);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        toast({
+          title: "Nachricht gesendet!",
+          description: "Ich werde mich bald bei Ihnen melden.",
+        });
+        form.reset();
+        setMessageLength(0);
+      } else {
+        toast({
+          title: "Fehler",
+          description: "Es gab ein Problem beim Versenden der E-Mail.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error("Fehler beim Senden:", error);
+      toast({
+        title: "Fehler",
+        description: "Bitte versuchen Sie es später erneut.",
+        variant: "destructive",
+      });
+    }
   }
 
   useEffect(() => {
