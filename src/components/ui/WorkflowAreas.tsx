@@ -1,11 +1,12 @@
 "use client";
-import { motion } from "framer-motion";
+
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 import Video from "next-video";
-import Textblock from "./Textblock";
 import { Asset } from "next-video/dist/assets.js";
 import Image, { StaticImageData } from "next/image";
-import { useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
+import Textblock from "./Textblock";
 
 interface WorkflowStepTextAreaProps {
   inverted?: boolean;
@@ -31,7 +32,7 @@ export const WorkflowStepTextArea = ({
       )}
       initial={{ opacity: 0, x: !inverted ? -100 : 100 }}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, amount: 0.5 }}
+      viewport={{ once: false, amount: 0.5 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <span
@@ -63,18 +64,33 @@ export const WorkflowStepVideoArea = ({
   inverted = false,
   videoSrc,
 }: WorkflowStepVideoAreaProps) => {
-  const [videoHover, setVideoHover] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   return (
     <motion.div
       initial={{ opacity: 0, x: !inverted ? 100 : -100 }}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, amount: 0.5 }}
+      viewport={{ once: false, amount: 0.5 }}
+      onViewportEnter={() => {
+        if (videoRef.current) {
+          videoRef.current.muted = true; // Muted setzen für Autoplay
+          videoRef.current
+            .play()
+            .catch((err) => console.warn("Autoplay blockiert:", err));
+        }
+      }}
+      onViewportLeave={() => videoRef.current?.pause()}
       transition={{ duration: 0.8, ease: "circOut" }}
       className="aspect-video"
-      onMouseEnter={() => setVideoHover(true)}
-      onMouseLeave={() => setVideoHover(false)}
     >
-      <Video src={videoSrc} controls={videoHover} loop accentColor="#497D74" />
+      <Video
+        ref={videoRef}
+        src={videoSrc}
+        controls={false}
+        muted
+        loop
+        accentColor="#497D74"
+      />
     </motion.div>
   );
 };
@@ -93,7 +109,7 @@ export const WorkflowStepImageArea = ({
   <motion.div
     initial={{ opacity: 0, x: !inverted ? 100 : -100 }}
     whileInView={{ opacity: 1, x: 0 }}
-    viewport={{ once: true, amount: 0.5 }}
+    viewport={{ once: false, amount: 0.5 }}
     transition={{ duration: 0.8, ease: "circOut" }}
     className="aspect-video "
   >
