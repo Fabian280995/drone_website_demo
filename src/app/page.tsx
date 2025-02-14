@@ -1,6 +1,5 @@
 import Banner from "@/components/Banner";
 import Contact from "@/components/Contact"; // Importiere die neue Komponente
-import CustomersSlider from "@/components/CustomersSlider";
 import Header from "@/components/Header";
 import Introduction from "@/components/Introduction";
 import Services from "@/components/Services";

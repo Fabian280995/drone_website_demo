@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { montserrat } from "./fonts";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "CineEagle – FPV & Drohnenaufnahmen | Fabian Lessmann",
@@ -65,6 +66,7 @@ export default function RootLayout({
   return (
     <html lang="de">
       <body className={`${montserrat.variable} antialiased`}>
+        <Header />
         <main>{children}</main>
         <Toaster />
       </body>
