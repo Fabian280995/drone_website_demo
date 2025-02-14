@@ -13,11 +13,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Loader2, Mail, MapPin, Phone } from "lucide-react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import PaddingBox from "./layout/PaddingBox";
 import { useContactStore } from "@/store/useContactStore";
+import { cn } from "@/lib/utils";
 
 const MAX_MESSAGE_LENGTH = 500;
 
@@ -43,6 +44,8 @@ const formSchema = z.object({
 
 const ContactSection: React.FC = () => {
   const [messageLength, setMessageLength] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [messageSend, setMessageSend] = useState(false);
   const subject = useContactStore((state) => state.subject);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -56,6 +59,7 @@ const ContactSection: React.FC = () => {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    setLoading(true);
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -71,6 +75,7 @@ const ContactSection: React.FC = () => {
         });
         form.reset();
         setMessageLength(0);
+        setMessageSend(true);
       } else {
         toast({
           title: "Fehler",
@@ -85,6 +90,8 @@ const ContactSection: React.FC = () => {
         description: "Bitte versuchen Sie es später erneut.",
         variant: "destructive",
       });
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -196,9 +203,23 @@ const ContactSection: React.FC = () => {
                   </FormItem>
                 )}
               />
-              <Button type="submit" className="text-white">
-                Nachricht senden
-              </Button>
+              {messageSend ? (
+                <p className="text-center text-green-500">
+                  Ihre Nachricht wurde erfolgreich gesendet!
+                </p>
+              ) : (
+                <Button
+                  type="submit"
+                  className={cn(
+                    "text-white",
+                    loading ? "opacity-80" : "opacity-100"
+                  )}
+                  disabled={loading}
+                >
+                  {loading && <Loader2 className="animate-spin" />}
+                  Nachricht senden
+                </Button>
+              )}
             </form>
           </Form>
         </div>
