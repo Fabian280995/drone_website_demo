@@ -7,6 +7,7 @@ import { Asset } from "next-video/dist/assets.js";
 import Image, { StaticImageData } from "next/image";
 import { use, useEffect, useRef, useState } from "react";
 import Textblock from "./Textblock";
+import ImageOverlaySlider from "./ImageOverlaySlider";
 
 interface WorkflowStepTextAreaProps {
   inverted?: boolean;
@@ -126,3 +127,34 @@ export const WorkflowStepImageArea = ({
     />
   </motion.div>
 );
+
+interface WorkfloStepImageOverlaySliderProps {
+  inverted?: boolean;
+  src: StaticImageData | string;
+  alt: string;
+  overlaySrc: StaticImageData | string;
+  overlayAlt: string;
+}
+
+export const WorkfloStepImageOverlaySlider = ({
+  inverted = false,
+  src,
+  alt,
+  overlaySrc,
+  overlayAlt,
+}: WorkfloStepImageOverlaySliderProps) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: !inverted ? 100 : -100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.8, ease: "circOut" }}
+      className="aspect-video"
+    >
+      <ImageOverlaySlider
+        beforeImage={{ src, alt }}
+        afterImage={{ src: overlaySrc, alt: overlayAlt }}
+      />
+    </motion.div>
+  );
+};

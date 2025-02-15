@@ -2,6 +2,7 @@ import { WorkflowStep } from "@/data/workflowSteps";
 import { cn } from "@/lib/utils";
 import PaddingBox from "../layout/PaddingBox";
 import {
+  WorkfloStepImageOverlaySlider,
   WorkflowStepImageArea,
   WorkflowStepTextArea,
   WorkflowStepVideoArea,
@@ -18,7 +19,8 @@ const WorkFlowStep = ({
   inverted = false,
   number = 0,
 }: WorkFlowStepProps) => {
-  const { title, description, videoSrc, highlighted, imageSrc } = workflowStep;
+  const { title, description, videoSrc, highlighted, imageSrc, overlaySrc } =
+    workflowStep;
 
   const TextArea = () => (
     <WorkflowStepTextArea
@@ -46,7 +48,19 @@ const WorkFlowStep = ({
     <PaddingBox vertical="md" className="">
       <div className={cn("grid grid-cols-1 md:grid-cols-2")}>
         {!inverted && <TextArea />}
-        {videoSrc ? <VideoArea /> : imageSrc ? <ImageArea /> : null}
+        {imageSrc && overlaySrc ? (
+          <WorkfloStepImageOverlaySlider
+            inverted={inverted}
+            src={imageSrc}
+            alt={title}
+            overlaySrc={overlaySrc}
+            overlayAlt={title + "_overlay"}
+          />
+        ) : videoSrc ? (
+          <VideoArea />
+        ) : (
+          <ImageArea />
+        )}
         {inverted && <TextArea />}
       </div>
     </PaddingBox>

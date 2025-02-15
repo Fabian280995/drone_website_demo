@@ -3,6 +3,8 @@ import { StaticImageData } from "next/image";
 
 import previewVideo from "/videos/Castle Appears in autnumnal and foggy forest.mp4";
 import briefingImage from "@/assets/images/briefing.jpg";
+import postImage from "@/assets/images/mavick.jpg";
+import postOverlay from "@/assets/images/goggles.jpg";
 import shootingDayVideo from "/videos/dji_googles.mov";
 
 export type WorkflowStep = {
@@ -10,6 +12,7 @@ export type WorkflowStep = {
   description: string;
   videoSrc?: Asset;
   imageSrc?: StaticImageData;
+  overlaySrc?: StaticImageData;
   highlighted?: string[];
 };
 
@@ -32,7 +35,8 @@ export const workflowSteps: WorkflowStep[] = [
     title: "Postproduktion",
     description:
       "In der Postproduktion veredeln wir Ihre Aufnahmen mit professionellem Color Grading, präzisem Schnitt und visuellen Effekten. Nach Ihrem Wunsch stellen wir auch das Rohmaterial bereit.",
-    videoSrc: previewVideo,
+    imageSrc: postImage,
+    overlaySrc: postOverlay,
     highlighted: [
       "Color Grading",
       "Schnitt",
