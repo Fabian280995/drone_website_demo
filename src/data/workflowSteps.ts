@@ -3,8 +3,8 @@ import { StaticImageData } from "next/image";
 
 import previewVideo from "/videos/Castle Appears in autnumnal and foggy forest.mp4";
 import briefingImage from "@/assets/images/briefing.jpg";
-import postImage from "@/assets/images/mavick.jpg";
-import postOverlay from "@/assets/images/goggles.jpg";
+import postImage from "@/assets/images/before_color.jpg";
+import postOverlay from "@/assets/images/after_color.jpg";
 import shootingDayVideo from "/videos/dji_googles.mov";
 
 export type WorkflowStep = {

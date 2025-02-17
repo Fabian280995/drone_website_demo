@@ -3,20 +3,22 @@
 import React, { useRef, useState } from "react";
 import Image, { ImageProps } from "next/image";
 import { motion } from "framer-motion";
-import { RefreshCcw } from "lucide-react";
+import { ChevronLeft, ChevronRight, RefreshCcw } from "lucide-react";
 import { Button } from "./button";
 
 interface ImageOverlaySliderProps {
-  beforeImage: ImageProps; // Bild ohne Color Grading (unten)
-  afterImage: ImageProps; // Bild mit Color Grading (oben)
+  beforeImage: ImageProps;
+  afterImage: ImageProps;
+  initialSliderValue?: number;
 }
 
 const ImageOverlaySlider: React.FC<ImageOverlaySliderProps> = ({
   beforeImage,
   afterImage,
+  initialSliderValue = 50,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [sliderValue, setSliderValue] = useState(50); // Prozentuale Position (50% Startwert)
+  const [sliderValue, setSliderValue] = useState(initialSliderValue); // Prozentuale Position (50% Startwert)
   const [isDragging, setIsDragging] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent | React.TouchEvent) => {
@@ -76,7 +78,10 @@ const ImageOverlaySlider: React.FC<ImageOverlaySliderProps> = ({
         onMouseDown={() => setIsDragging(true)}
         onTouchStart={() => setIsDragging(true)}
       >
-        <div className="absolute h-full w-[4px] bg-white/50 hover:bg-gray-100 hover:w-[8px] shadow-md cursor-pointer transform -translate-x-1/2" />
+        <div className="absolute h-full w-[64px] cursor-col-resize transform -translate-x-1/2">
+          <ChevronLeft className="w-6 h-6 text-white/80 absolute top-1/2 right-3/4 animate-pulse" />
+          <ChevronRight className="w-6 h-6 text-white/80 absolute top-1/2 left-3/4 animate-pulse" />
+        </div>
       </div>
       <div className="absolute top-0 right-0">
         <Button

@@ -154,6 +154,7 @@ export const WorkfloStepImageOverlaySlider = ({
       <ImageOverlaySlider
         beforeImage={{ src, alt }}
         afterImage={{ src: overlaySrc, alt: overlayAlt }}
+        initialSliderValue={50}
       />
     </motion.div>
   );
