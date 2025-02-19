@@ -1,8 +1,6 @@
 "use client";
-import React from "react";
-import { Button } from "./ui/button";
-import ZoomParallax from "./ZoomParallax";
 import PaddingBox from "./layout/PaddingBox";
+import ZoomParallax from "./ZoomParallax";
 
 function Gallery() {
   return (

@@ -102,11 +102,11 @@ const ContactSection: React.FC = () => {
   }, [subject, form.setValue]);
 
   return (
-    <section id="contact" className="h-[calc(100vh-80px)]">
+    <section id="contact" className="">
       <PaddingBox
         vertical="xl"
-        horizontal="lg"
-        className="flex flex-col items-center justify-center h-full"
+        horizontal="sm"
+        className="flex flex-col items-center justify-center h-full max-w-5xl mx-auto"
       >
         <h3 className="text-center">
           Ich freue mich auf <b>Ihre</b> Anfrage!
@@ -211,7 +211,7 @@ const ContactSection: React.FC = () => {
                 <Button
                   type="submit"
                   className={cn(
-                    "text-white",
+                    "text-white max-sm:w-full py-6 px-4",
                     loading ? "opacity-80" : "opacity-100"
                   )}
                   disabled={loading}
