@@ -102,7 +102,7 @@ const ContactSection: React.FC = () => {
   }, [subject, form]);
 
   return (
-    <SectionWrapper id="contact">
+    <SectionWrapper id="contact" className="bg-primary/5">
       <div className="flex flex-col items-center justify-center h-full max-w-5xl mx-auto">
         <h3 className="text-center">
           Ich freue mich auf <b>Ihre</b> Anfrage!

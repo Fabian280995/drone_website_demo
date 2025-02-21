@@ -34,7 +34,7 @@ const DroneSystem = ({ drone }: DroneSystemProps) => {
 
 function Services() {
   return (
-    <SectionWrapper id="services" className="bg-gray-100/40">
+    <SectionWrapper id="services" className="bg-primary/5">
       <div className="max-w-7xl mx-auto">
         <p className="text-3xl md:text-4xl text-center">
           Die <b>beste Technik</b> für Ihr <b>Projekt</b>
