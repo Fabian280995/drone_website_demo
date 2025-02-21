@@ -1,9 +1,9 @@
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import NavLinks from "./NavLinks";
 import SidebarNavigation from "./SidebarNavigation";
 import { buttonVariants } from "./ui/button";
-import NavLinks from "./ui/NavLinks";
 
 function Navigation() {
   const [sidebarOpen, setSidebarOpen] = React.useState(false);
