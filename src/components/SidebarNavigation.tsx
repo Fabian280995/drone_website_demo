@@ -1,8 +1,7 @@
-import React, { PropsWithChildren } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { Button } from "./ui/button";
-import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
+import { X } from "lucide-react";
+import { PropsWithChildren } from "react";
 
 interface SidebarNavigationProps {
   open: boolean;
