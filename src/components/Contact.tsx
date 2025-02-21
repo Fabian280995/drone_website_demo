@@ -104,7 +104,7 @@ const ContactSection: React.FC = () => {
   return (
     <SectionWrapper id="contact" className="bg-gray-50/75">
       <div className="flex flex-col items-center justify-center max-w-5xl mx-auto">
-        <h3 className="text-center">
+        <h3 className="text-center mt-12 md:mt-20">
           Ich freue mich auf <b>Ihre</b> Anfrage!
         </h3>
         <div className="w-full max-w-5xl mx-auto mt-8">

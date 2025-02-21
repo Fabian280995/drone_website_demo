@@ -6,7 +6,7 @@ function Workflow() {
   return (
     <SectionWrapper id="workflow" className="w-full h-full">
       <div className="max-w-screen-3xl mx-auto">
-        <h3 className="text-center">
+        <h3 className="text-center mt-12 md:mt-20">
           So erreichen wir <b>zusammen</b> das <b>beste Ergebnis</b>
         </h3>
         <div className="flex flex-col justify-evenly h-full">
