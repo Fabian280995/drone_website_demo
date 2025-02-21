@@ -99,7 +99,7 @@ const ContactSection: React.FC = () => {
     if (subject) {
       form.setValue("subject", subject);
     }
-  }, [subject, form.setValue]);
+  }, [subject]);
 
   return (
     <section id="contact" className="">
