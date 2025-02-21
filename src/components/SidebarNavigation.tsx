@@ -2,15 +2,18 @@ import React, { PropsWithChildren } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface SidebarNavigationProps {
   open: boolean;
   onClose: () => void;
+  className?: string;
 }
 
 function SidebarNavigation({
   open,
   onClose,
+  className,
   children,
 }: PropsWithChildren<SidebarNavigationProps>) {
   return (
@@ -37,7 +40,7 @@ function SidebarNavigation({
             >
               <X className="text-gray-700" />
             </button>
-            <div className="p-4">{children}</div>
+            <div className={cn("p-4", className)}>{children}</div>
           </motion.nav>
         </div>
       )}
