@@ -1,7 +1,6 @@
 import Banner from "@/components/Banner";
 import Contact from "@/components/Contact"; // Importiere die neue Komponente
 import Introduction from "@/components/Introduction";
-import Spacer from "@/components/layout/Spacer";
 import Services from "@/components/Services";
 import Workflow from "@/components/Workflow";
 

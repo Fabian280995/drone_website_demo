@@ -21,8 +21,8 @@ function Introduction() {
 
   return (
     <SectionWrapper id="introduction">
-      <div className="flex items-center justify-center max-w-5xl mx-auto text-center">
-        <h3 className="text-center mt-18">
+      <div className="flex items-center justify-center max-w-5xl mx-auto">
+        <h3 className="text-center">
           Ihr Partner für <b>dynamische</b> und{" "}
           <b>hochqualitative Drohnenaufnahmen</b>
         </h3>
