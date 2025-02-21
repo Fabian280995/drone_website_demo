@@ -1,7 +1,7 @@
 import profileImage from "@/assets/images/profilbild.jpeg";
+import SectionWrapper from "./layout/SectionWrapper";
 import Textblock from "./ui/Textblock";
 import WobblyFrame from "./ui/WobblyFrame";
-import SectionWrapper from "./layout/SectionWrapper";
 
 function Introduction() {
   const paragraphs = [
@@ -22,10 +22,10 @@ function Introduction() {
   return (
     <SectionWrapper id="introduction">
       <div className="flex items-center justify-center max-w-5xl mx-auto text-center">
-        <p className="text-2xl md:text-4xl">
+        <h3 className="text-center mt-18">
           Ihr Partner für <b>dynamische</b> und{" "}
           <b>hochqualitative Drohnenaufnahmen</b>
-        </p>
+        </h3>
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-12 mt-12">
