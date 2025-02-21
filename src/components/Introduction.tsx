@@ -21,7 +21,7 @@ function Introduction() {
   ];
 
   return (
-    <PaddingBox top="md" vertical="lg" horizontal="xl">
+    <PaddingBox top="md" vertical="lg" horizontal="sm">
       <div className="flex items-center justify-center max-w-6xl mx-auto text-center">
         <p className="text-2xl md:text-4xl">
           Ihr Partner für <b>dynamische</b> und{" "}

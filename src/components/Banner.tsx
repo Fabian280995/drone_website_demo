@@ -19,7 +19,7 @@ function Banner() {
   return (
     <PaddingBox bottom={"md"}>
       <motion.div
-        className="w-full h-[calc(100vh*0.36)] overflow-hidden mt-[10rem] flex items-center justify-center relative"
+        className="w-full h-[calc(100vh*0.36)] overflow-hidden mt-[4rem] md:mt-[10rem] flex items-center justify-center relative"
         onViewportEnter={() => {
           if (videoRef.current) {
             videoRef.current.muted = true; // Muted für Autoplay aktivieren

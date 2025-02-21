@@ -9,7 +9,7 @@ interface TextblockProps {
 
 function Textblock({ text, highlightedWords = [], className }: TextblockProps) {
   const textStyles = cn(
-    "text-lg leading-relaxed tracking-wide text-gray-700",
+    "text-lg leading-relaxed tracking-wide text-gray-700 ",
     className
   );
 

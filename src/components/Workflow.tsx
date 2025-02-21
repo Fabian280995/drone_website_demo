@@ -5,7 +5,12 @@ import PaddingBox from "./layout/PaddingBox";
 function Workflow() {
   return (
     <section id="workflow" className="w-full h-full">
-      <PaddingBox top="xl" bottom="lg" horizontal="xl" className="h-full">
+      <PaddingBox
+        top="xl"
+        bottom="lg"
+        horizontal="sm"
+        className="h-full max-w-screen-3xl mx-auto"
+      >
         <h2 className="text-2xl md:text-4xl text-center">
           So erreichen wir <b>zusammen</b> das <b>beste Ergebnis</b>
         </h2>

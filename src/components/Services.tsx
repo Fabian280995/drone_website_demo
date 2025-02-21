@@ -36,8 +36,12 @@ const DroneSystem = ({ drone }: DroneSystemProps) => {
 function Services() {
   return (
     <div id="services" className="bg-gray-100/40">
-      <PaddingBox vertical="xl" className="mt-[10rem] max-w-7xl mx-auto p-8">
-        <p className="text-2xl md:text-4xl text-center">
+      <PaddingBox
+        vertical="xl"
+        horizontal="sm"
+        className="mt-[10rem] max-w-7xl mx-auto"
+      >
+        <p className="text-3xl md:text-4xl text-center">
           Die <b>beste Technik</b> für Ihr <b>Projekt</b>
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">

@@ -45,8 +45,8 @@ const WorkFlowStep = ({
   };
 
   return (
-    <PaddingBox vertical="md" className="">
-      <div className={cn("grid grid-cols-1 md:grid-cols-2")}>
+    <PaddingBox vertical={"md"} className="">
+      <div className={cn("grid grid-cols-2 max-md:hidden")}>
         {!inverted && <TextArea />}
         {imageSrc && overlaySrc ? (
           <WorkfloStepImageOverlaySlider
@@ -62,6 +62,22 @@ const WorkFlowStep = ({
           <ImageArea />
         )}
         {inverted && <TextArea />}
+      </div>
+      <div className="md:hidden flex flex-col gap-y-4">
+        <TextArea />
+        {imageSrc && overlaySrc ? (
+          <WorkfloStepImageOverlaySlider
+            inverted={inverted}
+            src={imageSrc}
+            alt={title}
+            overlaySrc={overlaySrc}
+            overlayAlt={title + "_overlay"}
+          />
+        ) : videoSrc ? (
+          <VideoArea />
+        ) : (
+          <ImageArea />
+        )}
       </div>
     </PaddingBox>
   );

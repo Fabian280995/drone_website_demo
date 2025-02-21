@@ -67,7 +67,7 @@ export default function RootLayout({
     <html lang="de">
       <body className={`${montserrat.variable} antialiased`}>
         <Header />
-        <main>{children}</main>
+        <main className="w-screen overflow-hidden">{children}</main>
         <Toaster />
       </body>
     </html>

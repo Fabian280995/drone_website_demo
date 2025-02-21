@@ -32,13 +32,14 @@ function Header() {
     <header
       className={cn(
         `fixed top-0 z-50 w-full flex items-center transition-all duration-200 bg-white`,
-        isScrolled ? "h-[6rem]" : "h-[10rem]"
+        isScrolled
+          ? "h-[4rem] md:h-[6rem] border-2 border-gray-200"
+          : "h-[6rem] md:h-[10rem]"
       )}
     >
       <MaxWidthWrapper className="flex items-center justify-between">
         <Logo />
         <Navigation />
-        <HeaderBtns />
       </MaxWidthWrapper>
     </header>
   );

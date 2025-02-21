@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import Video from "next-video";
 import { Asset } from "next-video/dist/assets.js";
 import Image, { StaticImageData } from "next/image";
-import { use, useEffect, useRef, useState } from "react";
-import Textblock from "./Textblock";
+import { useRef } from "react";
 import ImageOverlaySlider from "./ImageOverlaySlider";
+import Textblock from "./Textblock";
 
 interface WorkflowStepTextAreaProps {
   inverted?: boolean;
@@ -29,7 +29,7 @@ export const WorkflowStepTextArea = ({
     <motion.div
       className={cn(
         "flex flex-col justify-center relative bg-transparent",
-        inverted ? "items-start ml-8" : "items-end mr-8"
+        inverted ? "items-start md:ml-8" : "items-end md:mr-8"
       )}
       initial={{ opacity: 0, x: !inverted ? -100 : 100 }}
       whileInView={{ opacity: 1, x: 0 }}
@@ -44,7 +44,12 @@ export const WorkflowStepTextArea = ({
       >
         {numberString}
       </span>
-      <h3 className={cn(`mb-2`, inverted ? "text-left" : "text-right")}>
+      <h3
+        className={cn(
+          `mb-2 font-bold text-zinc-400`,
+          inverted ? "text-left" : "text-right"
+        )}
+      >
         {title}
       </h3>
       <Textblock

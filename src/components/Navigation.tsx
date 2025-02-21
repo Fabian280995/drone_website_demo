@@ -71,7 +71,7 @@ function Navigation() {
               href={link.href}
               onClick={link.title === "Home" ? handleHomeClick : undefined} // Scroll-Funktion nur für "Home"
               className={cn(
-                "uppercase text-base xl:text-xl transition-colors duration-200 group text-gray-400"
+                "uppercase text-xl transition-colors duration-200 group text-gray-400"
               )}
             >
               {link.title.split("").map((char, index) => (
