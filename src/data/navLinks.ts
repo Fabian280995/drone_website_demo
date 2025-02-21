@@ -4,9 +4,9 @@ export interface NavLink {
 }
 
 export const NavLinks = [
-  { title: "Home", href: "#home" },
-  { title: "Leistungen", href: "#services" },
-  { title: "Zusammenarbeit", href: "#workflow" },
+  { title: "Home", href: "/#home" },
+  { title: "Leistungen", href: "/#services" },
+  { title: "Zusammenarbeit", href: "/#workflow" },
   // { title: "Galerie", href: "#gallery" },
-  { title: "Kontakt", href: "#contact" },
+  { title: "Kontakt", href: "/#contact" },
 ];

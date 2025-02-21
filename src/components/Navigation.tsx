@@ -3,23 +3,18 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import React from "react";
 import SidebarNavigation from "./SidebarNavigation";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
+import Link from "next/link";
 
 function Navigation() {
   const [sidebarOpen, setSidebarOpen] = React.useState(false);
   // Funktion, um nach oben zu scrollen, wenn "Home" geklickt wird
-  const handleHomeClick = (e: React.MouseEvent) => {
-    e.preventDefault(); // Verhindert das Standard-Anchor-Verhalten
-    window.scrollTo({ top: 0, behavior: "smooth" }); // Scrollt sanft nach oben
-    setSidebarOpen(false);
-  };
+
   return (
     <nav>
       <div className="lg:hidden">
-        <Button
-          className=""
-          variant={"ghost"}
-          size={"icon"}
+        <button
+          className="size-12 justify-center items-center flex"
           onClick={() => setSidebarOpen(!sidebarOpen)}
         >
           {sidebarOpen ? (
@@ -27,23 +22,19 @@ function Navigation() {
           ) : (
             <Menu className="text-gray-700" />
           )}
-        </Button>
+        </button>
         <SidebarNavigation
           open={sidebarOpen}
           onClose={() => setSidebarOpen(false)}
         >
-          <ul className="flex flex-col gap-y-4">
+          <ul className="flex flex-col items-center gap-y-8 mt-6">
             {NavLinks.map((link) => (
               <li key={link.title}>
                 <a
                   href={link.href}
-                  onClick={
-                    link.title === "Home"
-                      ? handleHomeClick
-                      : () => {
-                          setSidebarOpen(false);
-                        }
-                  } // Scroll-Funktion nur für "Home"
+                  onClick={() => {
+                    setSidebarOpen(false);
+                  }} // Scroll-Funktion nur für "Home"
                   className={cn(
                     "uppercase text-xl transition-colors duration-200 group text-gray-400"
                   )}
@@ -62,6 +53,30 @@ function Navigation() {
               </li>
             ))}
           </ul>
+          <ul className="flex flex-col items-center gap-y-2 mt-20 self-end">
+            <li>
+              <Link
+                href="/impressum"
+                onClick={() => {
+                  setSidebarOpen(false);
+                }}
+                className={buttonVariants({ variant: "ghost", size: "sm" })}
+              >
+                Impressum
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/datenschutz"
+                onClick={() => {
+                  setSidebarOpen(false);
+                }}
+                className={buttonVariants({ variant: "ghost", size: "sm" })}
+              >
+                Datenschutz
+              </Link>
+            </li>
+          </ul>
         </SidebarNavigation>
       </div>
       <ul className="hidden lg:flex gap-x-4">
@@ -69,7 +84,6 @@ function Navigation() {
           <li key={link.title}>
             <a
               href={link.href}
-              onClick={link.title === "Home" ? handleHomeClick : undefined} // Scroll-Funktion nur für "Home"
               className={cn(
                 "uppercase text-xl transition-colors duration-200 group text-gray-400"
               )}

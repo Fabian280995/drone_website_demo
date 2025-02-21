@@ -25,15 +25,18 @@ function SidebarNavigation({
             className="absolute inset-0 bg-black/40"
           />
           <motion.nav
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "100%" }}
             transition={{ duration: 0.2 }}
-            className="absolute h-screen top-0 right-0 w-64 bg-white shadow-md"
+            className="absolute h-screen top-0 right-0 w-screen bg-white shadow-md flex flex-col items-center pt-24"
           >
-            <Button onClick={onClose} variant={"ghost"} size={"icon"}>
+            <button
+              className="size-12 justify-center items-center flex"
+              onClick={onClose}
+            >
               <X className="text-gray-700" />
-            </Button>
+            </button>
             <div className="p-4">{children}</div>
           </motion.nav>
         </div>
