@@ -1,9 +1,6 @@
-import React from "react";
 import { motion } from "framer-motion";
 
-interface LogoProps {}
-
-const Logo: React.FC<LogoProps> = () => {
+const Logo = () => {
   return (
     <motion.h1
       className="uppercase text-gray-900 flex flex-col font-medium"
