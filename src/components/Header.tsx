@@ -2,7 +2,6 @@
 
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
-import HeaderBtns from "./HeaderBtns";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 import MaxWidthWrapper from "./layout/MaxWidthWrapper";
