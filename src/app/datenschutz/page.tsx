@@ -1,9 +1,6 @@
-import React from "react";
-import PaddingBox from "@/components/layout/PaddingBox";
-
 export default function Datenschutz() {
   return (
-    <PaddingBox vertical="xl" horizontal="lg">
+    <main>
       <h1>Datenschutzerklärung</h1>
       <p>
         Die folgenden Hinweise geben einen Überblick darüber, was mit Ihren
@@ -37,6 +34,6 @@ export default function Datenschutz() {
           fabianlessmann@cineeagle.com
         </a>
       </p>
-    </PaddingBox>
+    </main>
   );
 }

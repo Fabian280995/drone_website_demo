@@ -1,5 +1,4 @@
 "use client";
-import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -12,13 +11,14 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
+import { useContactStore } from "@/store/useContactStore";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2, Mail, MapPin, Phone } from "lucide-react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import PaddingBox from "./layout/PaddingBox";
-import { useContactStore } from "@/store/useContactStore";
-import { cn } from "@/lib/utils";
+import SectionWrapper from "./layout/SectionWrapper";
 
 const MAX_MESSAGE_LENGTH = 500;
 
@@ -102,12 +102,8 @@ const ContactSection: React.FC = () => {
   }, [subject, form]);
 
   return (
-    <section id="contact" className="">
-      <PaddingBox
-        vertical="xl"
-        horizontal="sm"
-        className="flex flex-col items-center justify-center h-full max-w-5xl mx-auto"
-      >
+    <SectionWrapper id="contact">
+      <div className="flex flex-col items-center justify-center h-full max-w-5xl mx-auto">
         <h3 className="text-center">
           Ich freue mich auf <b>Ihre</b> Anfrage!
         </h3>
@@ -245,8 +241,8 @@ const ContactSection: React.FC = () => {
             <MapPin className="mr-2" /> Hilden, Deutschland
           </a>
         </div>
-      </PaddingBox>
-    </section>
+      </div>
+    </SectionWrapper>
   );
 };
 

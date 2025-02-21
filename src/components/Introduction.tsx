@@ -1,8 +1,7 @@
-import React from "react";
-import PaddingBox from "./layout/PaddingBox";
-import WobblyFrame from "./ui/WobblyFrame";
 import profileImage from "@/assets/images/profilbild.jpeg";
 import Textblock from "./ui/Textblock";
+import WobblyFrame from "./ui/WobblyFrame";
+import SectionWrapper from "./layout/SectionWrapper";
 
 function Introduction() {
   const paragraphs = [
@@ -21,8 +20,8 @@ function Introduction() {
   ];
 
   return (
-    <PaddingBox top="md" vertical="lg" horizontal="sm">
-      <div className="flex items-center justify-center max-w-6xl mx-auto text-center">
+    <SectionWrapper id="introduction">
+      <div className="flex items-center justify-center max-w-5xl mx-auto text-center">
         <p className="text-2xl md:text-4xl">
           Ihr Partner für <b>dynamische</b> und{" "}
           <b>hochqualitative Drohnenaufnahmen</b>
@@ -47,7 +46,7 @@ function Introduction() {
           ))}
         </div>
       </div>
-    </PaddingBox>
+    </SectionWrapper>
   );
 }
 

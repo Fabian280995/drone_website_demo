@@ -1,11 +1,10 @@
-import PaddingBox from "./layout/PaddingBox";
-
 import Image from "next/image";
 import Textblock from "./ui/Textblock";
 
 import { Drone, drones } from "@/data/drones";
 import { Spec, specs } from "@/data/specs";
 import ServicesList from "./ui/ServicesList";
+import SectionWrapper from "./layout/SectionWrapper";
 
 interface DroneSystemProps {
   drone: Drone;
@@ -35,12 +34,8 @@ const DroneSystem = ({ drone }: DroneSystemProps) => {
 
 function Services() {
   return (
-    <div id="services" className="bg-gray-100/40">
-      <PaddingBox
-        vertical="xl"
-        horizontal="sm"
-        className="mt-[10rem] max-w-7xl mx-auto"
-      >
+    <SectionWrapper id="services" className="bg-gray-100/40">
+      <div className="max-w-7xl mx-auto">
         <p className="text-3xl md:text-4xl text-center">
           Die <b>beste Technik</b> für Ihr <b>Projekt</b>
         </p>
@@ -64,8 +59,8 @@ function Services() {
           ))}
         </div>
         <ServicesList />
-      </PaddingBox>
-    </div>
+      </div>
+    </SectionWrapper>
   );
 }
 

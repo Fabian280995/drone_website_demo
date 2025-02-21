@@ -1,13 +1,6 @@
-import React from "react";
-import PaddingBox from "@/components/layout/PaddingBox";
-
 export default function Impressum() {
   return (
-    <PaddingBox
-      vertical="xl"
-      horizontal="sm"
-      className="max-w-screen mx-auto flex items-center justify-center h-screen"
-    >
+    <main className="max-w-screen mx-auto flex items-center justify-center h-screen">
       <div className="p-8 border-2 border-primary flex flex-col gap-4">
         <h1>Impressum</h1>
         <p>
@@ -26,6 +19,6 @@ export default function Impressum() {
           </p>
         </div>
       </div>
-    </PaddingBox>
+    </main>
   );
 }

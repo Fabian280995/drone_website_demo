@@ -67,7 +67,17 @@ export default function RootLayout({
     <html lang="de">
       <body className={`${montserrat.variable} antialiased`}>
         <Header />
-        <main className="w-screen overflow-hidden">{children}</main>
+        <main id="home" className="min-h-screen w-screen overflow-hidden">
+          {children}
+        </main>
+        <footer className="bg-muted py-6">
+          <div className="container mx-auto px-4 text-center">
+            <p>
+              &copy; {new Date().getFullYear()} FPV Drohnenflüge. Alle Rechte
+              vorbehalten.
+            </p>
+          </div>
+        </footer>
         <Toaster />
       </body>
     </html>

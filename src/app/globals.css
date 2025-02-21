@@ -141,3 +141,39 @@ h6 {
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  /* 
+   * Vertical Padding
+   * -> vertical-padding-sm, vertical-padding-md, vertical-padding-lg, vertical-padding-xl
+   */
+  .vertical-padding-sm {
+    @apply py-2 sm:py-3 md:py-4 lg:py-5 xl:py-6 2xl:py-7;
+  }
+  .vertical-padding-md {
+    @apply py-4 sm:py-5 md:py-6 lg:py-7 xl:py-8 2xl:py-10;
+  }
+  .vertical-padding-lg {
+    @apply py-6 sm:py-7 md:py-8 lg:py-9 xl:py-10 2xl:py-12;
+  }
+  .vertical-padding-xl {
+    @apply py-8 sm:py-9 md:py-10 lg:py-12 xl:py-14 2xl:py-16;
+  }
+
+  /*
+   * Horizontal Padding
+   * -> horizontal-padding-sm, horizontal-padding-md, horizontal-padding-lg, horizontal-padding-xl
+   */
+  .horizontal-padding-sm {
+    @apply px-2 sm:px-3 md:px-4 lg:px-5 xl:px-6 2xl:px-7;
+  }
+  .horizontal-padding-md {
+    @apply px-4 sm:px-5 md:px-6 lg:px-7 xl:px-8 2xl:px-10;
+  }
+  .horizontal-padding-lg {
+    @apply px-6 sm:px-7 md:px-8 lg:px-9 xl:px-10 2xl:px-12;
+  }
+  .horizontal-padding-xl {
+    @apply px-8 sm:px-9 md:px-10 lg:px-12 xl:px-14 2xl:px-16;
+  }
+}

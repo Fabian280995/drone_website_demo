@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
-import React, { PropsWithChildren } from "react";
-import PaddingBox from "./PaddingBox";
+import { PropsWithChildren } from "react";
 
 interface MaxWidthWrapperProps {
   className?: string;
@@ -11,11 +10,7 @@ function MaxWidthWrapper({
   className,
 }: PropsWithChildren<MaxWidthWrapperProps>) {
   return (
-    <PaddingBox horizontal={"sm"} className="w-full">
-      <div className={cn("w-full max-w-screen-3xl mx-auto ", className)}>
-        {children}
-      </div>
-    </PaddingBox>
+    <div className={cn("max-w-screen-3xl mx-auto", className)}>{children}</div>
   );
 }
 

@@ -25,7 +25,7 @@ const ServiceTile = ({ service }: { service: Service }) => {
       <h3 className="text-xl font-semibold mt-4">{service.title}</h3>
       <Textblock
         text={service.alt}
-        className="text-sm text-gray-400 font-semibold mt-4"
+        className="text-sm text-gray-400 font-semibold mt-4 max-md:hidden"
       />
     </div>
   );

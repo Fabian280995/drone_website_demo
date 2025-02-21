@@ -1,6 +1,5 @@
 import { WorkflowStep } from "@/data/workflowSteps";
 import { cn } from "@/lib/utils";
-import PaddingBox from "../layout/PaddingBox";
 import {
   WorkfloStepImageOverlaySlider,
   WorkflowStepImageArea,
@@ -45,8 +44,8 @@ const WorkFlowStep = ({
   };
 
   return (
-    <PaddingBox vertical={"md"} className="">
-      <div className={cn("grid grid-cols-2 max-md:hidden")}>
+    <div className="mt-4 md:mt-8 2xl:mt-12">
+      <div className={cn("grid grid-cols-2 max-md:hidden my-2")}>
         {!inverted && <TextArea />}
         {imageSrc && overlaySrc ? (
           <WorkfloStepImageOverlaySlider
@@ -79,7 +78,7 @@ const WorkFlowStep = ({
           <ImageArea />
         )}
       </div>
-    </PaddingBox>
+    </div>
   );
 };
 
