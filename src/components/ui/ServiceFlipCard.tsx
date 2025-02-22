@@ -59,17 +59,17 @@ export default function FlipCard({ service }: FlipCardProps) {
   }, []);
 
   return (
-    <div
+    <motion.div
       // Ref für die Scroll-Position
       ref={cardRef}
       // 3D-Perspektive
       className="relative w-full h-80"
       style={{ perspective: 1000 }}
+      onHoverStart={handleHoverStart}
+      onHoverEnd={handleHoverEnd}
     >
       <motion.div
         // Hover-Events => nur auf Desktop relevant
-        onHoverStart={handleHoverStart}
-        onHoverEnd={handleHoverEnd}
         // Zustand -> isFlipped? "back" : "front"
         animate={isFlipped ? "back" : "front"}
         variants={parentVariants}
@@ -122,6 +122,6 @@ export default function FlipCard({ service }: FlipCardProps) {
           <p className="text-sm text-center font-semibold">{service.alt}</p>
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
