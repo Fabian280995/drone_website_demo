@@ -17,7 +17,7 @@ function Banner() {
 
   return (
     <motion.div
-      className="w-full max-h-[calc(100vh/2)]  overflow-hidden bg-red-200 flex items-center justify-center relative"
+      className="w-full max-h-[calc(100vh/2.8)]  overflow-hidden bg-red-200 flex items-center justify-center relative"
       onViewportEnter={() => {
         if (videoRef.current) {
           videoRef.current.muted = true; // Muted für Autoplay aktivieren
