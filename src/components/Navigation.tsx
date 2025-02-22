@@ -1,13 +1,36 @@
+"use client";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import React from "react";
-import NavLinks from "./NavLinks";
+import ScrollLinks from "./ScrollLinks";
 import SidebarNavigation from "./SidebarNavigation";
 import { buttonVariants } from "./ui/button";
+import { usePathname, useRouter } from "next/navigation";
 
 function Navigation() {
   const [sidebarOpen, setSidebarOpen] = React.useState(false);
-  // Funktion, um nach oben zu scrollen, wenn "Home" geklickt wird
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const scrollToSection = (id: string) => {
+    // scroll to section
+    const section = document.getElementById(id);
+    console.log(section);
+    section?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleNavLinkClick = (id: string) => {
+    if (sidebarOpen) setSidebarOpen(false);
+    if (pathname == "/") {
+      scrollToSection(id);
+      return;
+    }
+
+    router.replace("/");
+    setTimeout(() => {
+      scrollToSection(id);
+    }, 300);
+  };
 
   return (
     <nav>
@@ -28,11 +51,7 @@ function Navigation() {
           className="flex flex-col items-center justify-between"
         >
           <ul className="flex flex-col items-center gap-y-8 mt-10">
-            <NavLinks
-              onClick={() => {
-                setSidebarOpen(false);
-              }}
-            />
+            <ScrollLinks onClick={handleNavLinkClick} />
           </ul>
           <ul className="flex flex-col items-center justify-center gap-y-2 mt-16">
             <li>
@@ -61,7 +80,7 @@ function Navigation() {
         </SidebarNavigation>
       </div>
       <ul className="hidden lg:flex gap-x-4 ">
-        <NavLinks />
+        <ScrollLinks onClick={handleNavLinkClick} />
       </ul>
     </nav>
   );

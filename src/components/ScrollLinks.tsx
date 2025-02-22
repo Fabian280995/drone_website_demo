@@ -1,16 +1,16 @@
-import { NavLinks as NavLinksData } from "@/data/navLinks";
+import { ScrollLinks as ScrollLinksData } from "@/data/links";
 import { cn } from "@/lib/utils";
 
-const NavLinks = ({ onClick }: { onClick?: () => void }) => {
-  const handleOnClick = () => {
-    if (onClick) onClick();
-  };
+interface Props {
+  onClick: (id: string) => void;
+}
 
-  return NavLinksData.map((link) => (
+const ScrollLinks = ({ onClick }: Props) => {
+  return ScrollLinksData.map((link) => (
     <li key={link.title}>
-      <a
-        href={link.href}
-        onClick={handleOnClick}
+      <button
+        type="button"
+        onClick={() => onClick(link.sectionId)}
         className={cn(
           "uppercase text-xl transition-colors duration-200 group text-gray-400"
         )}
@@ -25,9 +25,9 @@ const NavLinks = ({ onClick }: { onClick?: () => void }) => {
             {char}
           </span>
         ))}
-      </a>
+      </button>
     </li>
   ));
 };
 
-export default NavLinks;
+export default ScrollLinks;

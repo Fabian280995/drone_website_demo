@@ -70,7 +70,7 @@ export default function RootLayout({
         className={`${montserrat.variable} antialiased w-screen overflow-x-hidden`}
       >
         <AutoHideHeader />
-        <main id="home" className="min-h-screen">
+        <main id="home" className="min-h-screen w-full overflow-x-hidden">
           {children}
         </main>
         <Footer />
