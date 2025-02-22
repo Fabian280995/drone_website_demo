@@ -7,17 +7,19 @@ import { Button } from "./button";
 
 function ServicesList() {
   const [showAll, setShowAll] = useState(false);
-  const [defaultVisibleCount, setDefaultVisibleCount] = useState(
-    window.innerWidth >= 1536 ? 4 : 3
-  );
+  const [defaultVisibleCount, setDefaultVisibleCount] = useState(3);
 
   useEffect(() => {
-    const updateVisibleCount = () => {
+    if (typeof window !== "undefined") {
       setDefaultVisibleCount(window.innerWidth >= 1536 ? 4 : 3);
-    };
 
-    window.addEventListener("resize", updateVisibleCount);
-    return () => window.removeEventListener("resize", updateVisibleCount);
+      const updateVisibleCount = () => {
+        setDefaultVisibleCount(window.innerWidth >= 1536 ? 4 : 3);
+      };
+
+      window.addEventListener("resize", updateVisibleCount);
+      return () => window.removeEventListener("resize", updateVisibleCount);
+    }
   }, []);
 
   const visibleServices: Service[] = showAll
@@ -25,11 +27,13 @@ function ServicesList() {
     : services.slice(0, defaultVisibleCount);
 
   const scrollToServiceList = () => {
-    const serviceListSection = document.getElementById("servicelist");
-    serviceListSection?.scrollIntoView({
-      behavior: "smooth",
-      block: showAll ? "center" : "start",
-    });
+    if (typeof window !== "undefined") {
+      const serviceListSection = document.getElementById("servicelist");
+      serviceListSection?.scrollIntoView({
+        behavior: "smooth",
+        block: showAll ? "center" : "start",
+      });
+    }
   };
 
   const handleShowButtonClick = () => {
