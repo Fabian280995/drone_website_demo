@@ -19,7 +19,7 @@ const DroneSystem = ({ drone }: DroneSystemProps) => {
         alt={alt}
         height={320}
         width={320}
-        className="object-cover object-center"
+        className="object-cover object-center -my-16 sm:-my-8 md:-my-2"
       />
       <p className="text-center text-lg font-semibold text-gray-500">{name}</p>
       <h4 className="text-center mb-8 font-semibold">{title}</h4>
@@ -39,7 +39,7 @@ function Services() {
         <h3 className="text-center">
           Die <b>beste Technik</b> für Ihr <b>Projekt</b>
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
           {drones.map((drone: Drone, index: number) => (
             <DroneSystem
               key={drone.src.toString() + "_" + index}
