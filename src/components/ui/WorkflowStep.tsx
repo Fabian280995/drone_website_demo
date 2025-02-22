@@ -44,8 +44,8 @@ const WorkFlowStep = ({
   };
 
   return (
-    <div className="mt-4 md:mt-8 2xl:mt-12">
-      <div className={cn("grid grid-cols-2 max-md:hidden my-2")}>
+    <>
+      <div className={cn("grid grid-cols-2 max-md:hidden")}>
         {!inverted && <TextArea />}
         {imageSrc && overlaySrc ? (
           <WorkfloStepImageOverlaySlider
@@ -78,7 +78,7 @@ const WorkFlowStep = ({
           <ImageArea />
         )}
       </div>
-    </div>
+    </>
   );
 };
 

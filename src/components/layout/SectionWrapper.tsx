@@ -19,7 +19,7 @@ const SectionWrapper = ({
         // horizontal padding
         "horizontal-padding-lg",
         // vertical padding
-        "vertical-padding-lg",
+        "vertical-padding-xl",
         className
       )}
     >

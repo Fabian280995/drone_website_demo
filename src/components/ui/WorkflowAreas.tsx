@@ -46,8 +46,9 @@ export const WorkflowStepTextArea = ({
       </span>
       <h3
         className={cn(
-          `mb-2 font-bold text-zinc-400`,
-          inverted ? "text-left" : "text-right"
+          `mb-2 font-semibold text-gray-900 border-primary`,
+          inverted ? "text-left" : "text-right",
+          inverted ? "border-l-4 pl-2 " : "border-r-4 pr-2"
         )}
       >
         {title}

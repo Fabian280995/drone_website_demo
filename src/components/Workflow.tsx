@@ -9,7 +9,7 @@ function Workflow() {
         <h3 className="text-center">
           So erreichen wir <b>zusammen</b> das <b>beste Ergebnis</b>
         </h3>
-        <div className="flex flex-col justify-evenly h-full">
+        <div className="flex flex-col justify-evenly h-full gap-y-12 md:gap-y-0 mt-12 2xl:mt-16">
           {workflowSteps.map((workflowStep: WSType, index: number) => (
             <WorkflowStep
               key={index}
