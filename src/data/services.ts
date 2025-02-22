@@ -8,12 +8,16 @@ import {
   AirVent,
   Landmark,
 } from "lucide-react";
+import immoImage from "@/assets/images/fly_through.jpg";
+import sportOutdoorImage from "@/assets/images/from_above.jpg";
 import { LucideIcon } from "lucide-react";
+import { StaticImageData } from "next/image";
 
 export interface Service {
   title: string;
   alt: string;
   icon: LucideIcon;
+  image?: StaticImageData | string;
 }
 
 export const services: Service[] = [
@@ -21,11 +25,13 @@ export const services: Service[] = [
     title: "Immobilienaufnahmen",
     alt: "Professionelle Luftaufnahmen für Immobilien, Architektur und Exposés.",
     icon: Building,
+    image: immoImage,
   },
   {
     title: "Sport- & Outdoor-Events",
     alt: "Dynamische FPV-Aufnahmen für Sportveranstaltungen, Wettkämpfe und Extremsport.",
     icon: Flag,
+    image: sportOutdoorImage,
   },
   {
     title: "Motorsport & KFZ",
