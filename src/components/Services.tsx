@@ -5,6 +5,7 @@ import { Drone, drones } from "@/data/drones";
 import { Spec, specs } from "@/data/specs";
 import SectionWrapper from "./layout/SectionWrapper";
 import ServicesList from "./ui/ServicesList";
+import MaxWidthWrapper from "./layout/MaxWidthWrapper";
 
 interface DroneSystemProps {
   drone: Drone;
@@ -35,11 +36,11 @@ const DroneSystem = ({ drone }: DroneSystemProps) => {
 function Services() {
   return (
     <SectionWrapper id="services" className="bg-gray-50/75">
-      <div className="max-w-7xl mx-auto">
+      <MaxWidthWrapper>
         <h3 className="text-center">
           Die <b>beste Technik</b> für Ihr <b>Projekt</b>
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12 mt-8">
           {drones.map((drone: Drone, index: number) => (
             <DroneSystem
               key={drone.src.toString() + "_" + index}
@@ -59,7 +60,7 @@ function Services() {
           ))}
         </div>
         <ServicesList />
-      </div>
+      </MaxWidthWrapper>
     </SectionWrapper>
   );
 }
