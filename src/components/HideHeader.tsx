@@ -39,7 +39,7 @@ function AutoHideHeader() {
   return (
     <header
       className={cn(
-        "sticky top-0 left-0 right-0 z-50 flex items-center bg-white vertical-padding-sm",
+        "sticky top-0 left-0 right-0 z-50 flex items-center bg-white vertical-padding-sm horizontal-padding-lg",
         // Übergangsanimation
         "transition-transform duration-300 ease-in-out",
         // Bei isHidden nach oben rausfahren, sonst Position 0
@@ -47,7 +47,7 @@ function AutoHideHeader() {
         isScrolled ? "shadow-md" : "shadow-none"
       )}
     >
-      <MaxWidthWrapper className="flex items-center justify-between w-full horizontal-padding-lg">
+      <MaxWidthWrapper className="flex items-center justify-between w-full ">
         <Logo />
         <Navigation />
       </MaxWidthWrapper>

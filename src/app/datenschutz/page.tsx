@@ -1,10 +1,11 @@
+import MaxWidthWrapper from "@/components/layout/MaxWidthWrapper";
 import SectionWrapper from "@/components/layout/SectionWrapper";
 import LegalInfo from "@/components/ui/legalInfo";
 
 export default function Datenschutz() {
   return (
     <SectionWrapper>
-      <div className="pb-20">
+      <MaxWidthWrapper className="pb-20">
         <h1 className="font-bold">Datenschutzerklärung</h1>
         <LegalInfo className="mt-4">
           <p>
@@ -49,7 +50,7 @@ export default function Datenschutz() {
             </a>
           </p>
         </LegalInfo>
-      </div>
+      </MaxWidthWrapper>
     </SectionWrapper>
   );
 }

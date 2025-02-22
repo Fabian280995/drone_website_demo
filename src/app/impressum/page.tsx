@@ -1,10 +1,11 @@
+import MaxWidthWrapper from "@/components/layout/MaxWidthWrapper";
 import SectionWrapper from "@/components/layout/SectionWrapper";
 import ImpressumInfo from "@/components/ui/legalInfo";
 
 export default function Impressum() {
   return (
     <SectionWrapper id="impressum">
-      <div className="pb-20">
+      <MaxWidthWrapper className="pb-20">
         <h1 className="font-bold">Impressum</h1>
         <ImpressumInfo title="Angaben gemäß § 5 TMG">
           <p>
@@ -83,7 +84,7 @@ export default function Impressum() {
             </a>
           </p>
         </ImpressumInfo>
-      </div>
+      </MaxWidthWrapper>
     </SectionWrapper>
   );
 }
