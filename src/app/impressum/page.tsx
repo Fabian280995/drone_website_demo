@@ -1,7 +1,9 @@
+import SectionWrapper from "@/components/layout/SectionWrapper";
+
 export default function Impressum() {
   return (
-    <main className="max-w-screen mx-auto flex items-center justify-center h-screen">
-      <div className="p-8 border-2 border-primary flex flex-col gap-4">
+    <main>
+      <SectionWrapper>
         <h1>Impressum</h1>
         <p>
           <strong>Angaben gemäß § 5 TMG:</strong>
@@ -18,7 +20,7 @@ export default function Impressum() {
             </a>
           </p>
         </div>
-      </div>
+      </SectionWrapper>
     </main>
   );
 }

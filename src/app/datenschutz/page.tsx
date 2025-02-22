@@ -1,6 +1,8 @@
+import SectionWrapper from "@/components/layout/SectionWrapper";
+
 export default function Datenschutz() {
   return (
-    <main>
+    <SectionWrapper>
       <h1>Datenschutzerklärung</h1>
       <p>
         Die folgenden Hinweise geben einen Überblick darüber, was mit Ihren
@@ -34,6 +36,6 @@ export default function Datenschutz() {
           fabianlessmann@cineeagle.com
         </a>
       </p>
-    </main>
+    </SectionWrapper>
   );
 }
