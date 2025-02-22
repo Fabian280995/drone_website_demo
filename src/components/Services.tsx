@@ -36,7 +36,7 @@ function Services() {
   return (
     <SectionWrapper id="services" className="bg-gray-50/75">
       <div className="max-w-7xl mx-auto">
-        <h3 className="text-center mt-12 md:mt-20">
+        <h3 className="text-center">
           Die <b>beste Technik</b> für Ihr <b>Projekt</b>
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
