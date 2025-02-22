@@ -3,6 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import type { Metadata } from "next";
 import { montserrat } from "./fonts";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "CineEagle – FPV & Drohnenaufnahmen | Fabian Lessmann",
@@ -65,19 +66,14 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="de">
-      <body className={`${montserrat.variable} antialiased`}>
+      <body
+        className={`${montserrat.variable} antialiased w-screen overflow-x-hidden`}
+      >
         <AutoHideHeader />
-        <main id="home" className="min-h-screen w-screen overflow-hidden">
+        <main id="home" className="min-h-screen">
           {children}
         </main>
-        <footer className="bg-muted py-6">
-          <div className="container mx-auto px-4 text-center">
-            <p>
-              &copy; {new Date().getFullYear()} FPV Drohnenflüge. Alle Rechte
-              vorbehalten.
-            </p>
-          </div>
-        </footer>
+        <Footer />
         <Toaster />
       </body>
     </html>
