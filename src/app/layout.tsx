@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import AutoHideHeader from "@/components/HideHeader";
 import { Toaster } from "@/components/ui/toaster";
+import type { Metadata } from "next";
 import { montserrat } from "./fonts";
-import Header from "@/components/Header";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "CineEagle – FPV & Drohnenaufnahmen | Fabian Lessmann",
@@ -66,7 +66,7 @@ export default function RootLayout({
   return (
     <html lang="de">
       <body className={`${montserrat.variable} antialiased`}>
-        <Header />
+        <AutoHideHeader />
         <main id="home" className="min-h-screen w-screen overflow-hidden">
           {children}
         </main>
