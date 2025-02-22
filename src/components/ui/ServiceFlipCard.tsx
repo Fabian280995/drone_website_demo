@@ -33,6 +33,9 @@ export default function FlipCard({ service }: FlipCardProps) {
       setIsFlipped(false);
     }
   }
+  function handleOnClick() {
+    setIsFlipped(!isFlipped);
+  }
 
   // SCROLL-LOGIK (nur Mobile)
   useEffect(() => {
@@ -67,6 +70,7 @@ export default function FlipCard({ service }: FlipCardProps) {
       style={{ perspective: 1000 }}
       onHoverStart={handleHoverStart}
       onHoverEnd={handleHoverEnd}
+      onClick={handleOnClick}
     >
       <motion.div
         // Hover-Events => nur auf Desktop relevant
