@@ -27,14 +27,14 @@ function Navigation() {
           onClose={() => setSidebarOpen(false)}
           className="flex flex-col items-center justify-between"
         >
-          <ul className="flex flex-col items-center gap-y-8 mt-6">
+          <ul className="flex flex-col items-center gap-y-8 mt-10">
             <NavLinks
               onClick={() => {
                 setSidebarOpen(false);
               }}
             />
           </ul>
-          <ul className="flex flex-col items-center gap-y-2 mt-20 self-end">
+          <ul className="flex flex-col items-center justify-center gap-y-2 mt-16">
             <li>
               <Link
                 href="/impressum"
@@ -60,7 +60,7 @@ function Navigation() {
           </ul>
         </SidebarNavigation>
       </div>
-      <ul className="hidden lg:flex gap-x-4">
+      <ul className="hidden lg:flex gap-x-4 ">
         <NavLinks />
       </ul>
     </nav>
