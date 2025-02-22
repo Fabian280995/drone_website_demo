@@ -22,11 +22,11 @@ const DroneSystem = ({ drone }: DroneSystemProps) => {
         className="object-cover object-center -my-16 sm:-my-8 md:-my-2"
       />
       <p className="text-center text-lg font-semibold text-gray-500">{name}</p>
-      <h4 className="text-center mb-8 font-semibold">{title}</h4>
+      <h4 className="text-center mb-4 md:mb-8 font-semibold">{title}</h4>
       <Textblock
         text={description}
         highlightedWords={highlights}
-        className="text-center text-base"
+        className="text-center text-sm md:text-base"
       />
     </div>
   );
