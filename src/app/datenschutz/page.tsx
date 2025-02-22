@@ -1,55 +1,87 @@
 import MaxWidthWrapper from "@/components/layout/MaxWidthWrapper";
 import SectionWrapper from "@/components/layout/SectionWrapper";
-import LegalInfo from "@/components/ui/legalInfo";
+import { privacyPolicy } from "@/data/datenschutz";
 
 export default function Datenschutz() {
   return (
     <SectionWrapper>
       <MaxWidthWrapper className="pb-20">
-        <h1 className="font-bold">Datenschutzerklärung</h1>
-        <LegalInfo className="mt-4">
-          <p>
-            Die folgenden Hinweise geben einen Überblick darüber, was mit Ihren
-            personenbezogenen Daten passiert, wenn Sie unsere Website besuchen.
-          </p>
-        </LegalInfo>
-        <LegalInfo title="1. Allgemeine Hinweise">
-          <p>
-            Die Datenverarbeitung auf dieser Website erfolgt durch den
-            Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum
-            dieser Website entnehmen.
-          </p>
-        </LegalInfo>
-        <LegalInfo title="2. Datenerfassung">
-          <p>
-            Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese
-            mitteilen. Andere Daten werden automatisch oder nach Ihrer
-            Einwilligung beim Besuch der Website durch unsere IT-Systeme
-            erfasst.
-          </p>
-        </LegalInfo>
-        <LegalInfo title="3. Ihre Rechte">
-          <p>
-            Sie haben jederzeit das Recht auf unentgeltliche Auskunft über
-            Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen
-            Daten sowie ein Recht auf Berichtigung oder Löschung dieser Daten.
-          </p>
-        </LegalInfo>
-        <LegalInfo title="Weitere Informationen">
-          <p>
-            Bei weiteren Fragen zum Datenschutz können Sie sich jederzeit an uns
-            wenden:
-          </p>
-          <p>
-            E-Mail:{" "}
-            <a
-              href="mailto:fabianlessmann@cineeagle.com"
-              className="hover:underline "
-            >
-              fabianlessmann@cineeagle.com
-            </a>
-          </p>
-        </LegalInfo>
+        <h1 className="text-primary font-bold text-3xl mb-6">
+          {privacyPolicy.title}
+        </h1>
+
+        {privacyPolicy.articles.map((article, articleIndex) => (
+          <section key={articleIndex} className="mb-8 max-w-5xl">
+            {article.title && (
+              <h2 className="text-2xl font-semibold mb-4">
+                {articleIndex + 1}. {article.title}
+              </h2>
+            )}
+
+            {article.sections.map((section, sectionIndex) => (
+              <div key={sectionIndex} className="mb-6">
+                {section.title && (
+                  <h3 className="text-xl font-semibold mb-2">
+                    {section.title}
+                  </h3>
+                )}
+
+                {section.paragraphs.map((paragraph, paragraphIndex) => (
+                  <div key={paragraphIndex} className="mb-6">
+                    {paragraph.title && (
+                      <h4 className="text-lg font-medium mb-2">
+                        {paragraph.title}
+                      </h4>
+                    )}
+
+                    {/* Texte */}
+                    {paragraph.texts &&
+                      paragraph.texts.map((text, textIndex) => (
+                        <p
+                          key={textIndex}
+                          className="text-gray-700 mb-2 border-l-4 border-primary pl-4 py-1 leading-relaxed tracking-wide text-base max-md:text-sm"
+                        >
+                          {text}
+                        </p>
+                      ))}
+
+                    {/* Adressen (falls vorhanden) */}
+                    {paragraph.addresses && paragraph.addresses.length > 0 && (
+                      <div className="mb-2 border-l-4 border-yellow-500 pl-4 py-1 text-gray-800">
+                        {paragraph.addresses.map((address, addressIndex) => (
+                          <div key={addressIndex} className="mb-2">
+                            <p className="font-semibold">{address.name}</p>
+                            <p>{address.street}</p>
+                            <p>
+                              {address.postalCode} {address.city}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Links (falls vorhanden) */}
+                    {paragraph.links && paragraph.links.length > 0 && (
+                      <div className="mb-2 flex flex-col border-l-4 border-blue-500 pl-4 py-1 text-gray-800">
+                        {paragraph.links.map((link, linkIndex) => (
+                          <a
+                            key={linkIndex}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-500 hover:underline"
+                          >
+                            {link.label}: {link.text}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </section>
+        ))}
       </MaxWidthWrapper>
     </SectionWrapper>
   );

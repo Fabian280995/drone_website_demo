@@ -6,7 +6,7 @@ export default function Impressum() {
   return (
     <SectionWrapper id="impressum">
       <MaxWidthWrapper className="pb-20">
-        <h1 className="font-bold">Impressum</h1>
+        <h1 className="text-primary font-bold text-3xl mb-6">Impressum</h1>
         <ImpressumInfo title="Angaben gemäß § 5 TMG">
           <p>
             Fabian Lessmann
