@@ -40,6 +40,7 @@ function Banner() {
         autoPlay
         loop
         ref={videoRef}
+        className="max-sm:-mt-0.5"
       />
       <div className="absolute inset-0 flex flex-col justify-center items-center ">
         <h2 className="text-white font-medium mb-4">Eine neue Perspektive</h2>

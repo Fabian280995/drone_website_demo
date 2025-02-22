@@ -93,7 +93,7 @@ export const WorkflowStepVideoArea = ({
         }
       }}
       transition={{ duration: 0.8, ease: "circOut" }}
-      className="aspect-video"
+      className="aspect-video overflow-hidden"
     >
       <Video
         ref={videoRef}
@@ -102,6 +102,7 @@ export const WorkflowStepVideoArea = ({
         muted
         loop={true}
         accentColor="#497D74"
+        className="max-sm:-mt-0.5"
       />
     </motion.div>
   );
