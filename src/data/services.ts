@@ -1,20 +1,19 @@
-import {
-  Building,
-  Flag,
-  Car,
-  Bike,
-  Camera,
-  Film,
-  AirVent,
-  Landmark,
-} from "lucide-react";
+import motorsportImage from "@/assets/images/dirtbike.jpg";
+import filmImage from "@/assets/images/filmset.jpg";
 import immoImage from "@/assets/images/fly_through.jpg";
 import sportOutdoorImage from "@/assets/images/from_above.jpg";
-import motorsportImage from "@/assets/images/dirtbike.jpg";
-import indoorImage from "@/assets/images/warehouse.jpg";
-import landscapeImage from "@/assets/images/landscape.jpg";
-import filmImage from "@/assets/images/filmset.jpg";
 import marketingImage from "@/assets/images/hotel.jpg";
+import landscapeImage from "@/assets/images/landscape.jpg";
+import indoorImage from "@/assets/images/warehouse.jpg";
+import {
+  AirVent,
+  Building,
+  Camera,
+  Car,
+  Film,
+  Flag,
+  Landmark,
+} from "lucide-react";
 
 import { LucideIcon } from "lucide-react";
 import { StaticImageData } from "next/image";
